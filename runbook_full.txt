@@ -1,0 +1,202 @@
+NOK Inc WordPress / Elementor → Next.js Migration Runbook
+Developer Execution Guide
+Goal: reproduce the current nokinc.com visual design in a clean Next.js codebase, deploy it to OCI, switch DNS, and retire WordPress safely.
+
+
+Independent Architecture Decision
+For this site, the cleanest approach is not to convert Elementor-generated HTML into React. Use the existing site as a visual and content specification, rebuild the UI as reusable Next.js components, and prove parity with automated screenshots. This avoids carrying Elementor markup, plugin dependencies, and WordPress runtime risk into the new application.
+Do not use an “Elementor-to-React converter” as the production implementation.
+Do not deploy Kubernetes/OKE for this site unless there is a future workload that actually requires orchestration; OCI Container Instances are simpler for a single web container.
+Do not delete WordPress on DNS cutover day. Retire it only after the new site is verified and the rollback window has passed.
+
+Definition of Done
+☐ Every current public URL either remains exactly the same or has an intentional 301 redirect.
+☐ Desktop, tablet, and mobile pages visually match the approved WordPress baselines.
+☐ No page depends on WordPress, Elementor, wp-json, wp-content URLs, or WordPress plugins at runtime.
+☐ All images, fonts, icons, and documents required by the site are owned and served by the new application or an approved external service.
+☐ Navigation, forms, links, responsive behavior, SEO metadata, social metadata, robots.txt, and sitemap are verified.
+☐ Production build, container health check, OCI deployment, TLS, and DNS are tested before WordPress is retired.
+1. Phase 0 — Protect the Existing Site Before Any Work
+This phase is mandatory. The current WordPress site is the source of truth until the Next.js replacement is accepted.
+1.1 Create three backups
+Create a full hosting backup/snapshot using the hosting provider.
+Export the WordPress database. If WP-CLI is available:
+
+Copy the entire wp-content directory, especially wp-content/uploads, themes, and any custom plugin code. Also use WordPress Admin → Tools → Export → All content to save a WXR/XML content export.
+1.2 Create a migration archive folder
+
+1.3 Freeze uncontrolled design changes
+Once baseline capture starts, do not change page layout, fonts, colors, images, or copy in WordPress without telling the developer. Otherwise the reference screenshots and the live site stop representing the same target.
+2. Phase 1 — Inventory Every URL and Feature
+2.1 Build the URL list
+Start with the WordPress sitemap. Common locations are https://nokinc.com/wp-sitemap.xml or an SEO-plugin sitemap such as /sitemap_index.xml. Add every public URL that must survive the migration to migration/urls.txt.
+
+Do not change URLs merely to make the new project “cleaner.” Preserving existing URLs is the lowest-risk SEO and DNS cutover strategy.
+2.2 Inventory behavior, not just pages
+☐ Header and mobile navigation
+☐ Footer and global contact information
+☐ Buttons and outbound links
+☐ Forms and form submission destination
+☐ Carousels, sliders, accordions, counters, animations, and popups
+☐ Images, icons, SVGs, downloadable files, and videos
+☐ Responsive differences between desktop, tablet, and phone
+☐ Page title, meta description, canonical URL, Open Graph image, and structured data
+3. Phase 2 — Capture the Definitive Visual Baseline
+You do not need to take screenshots manually. Playwright can generate consistent full-page screenshots and later compare the Next.js implementation against them. Playwright officially supports reference screenshots with expect(page).toHaveScreenshot(). For reliable comparisons, generate and compare screenshots in the same browser/OS environment.
+3.1 Install Playwright in a small migration test project
+
+3.2 Create playwright.config.ts
+
+3.3 Create tests/visual.spec.ts
+
+3.4 Generate reference screenshots from WordPress
+
+Commit these snapshot files to the migration repository. They are the visual contract for the rebuild.
+4. Phase 3 — Extract Assets, Fonts, Colors, and Layout Rules
+4.1 Assets
+Copy only the images, logos, SVGs, videos, PDFs, and icons actually used by the public site from the WordPress upload backup into the new repository. Rename unclear WordPress filenames when practical, but maintain an asset mapping so the developer can trace each file back to its source.
+
+4.2 Fonts and visual tokens
+In Chrome DevTools, inspect representative headings, body text, buttons, cards, and navigation. Record Computed values for font-family, font-size, font-weight, line-height, color, background, border radius, shadows, width, padding, gap, and breakpoints. Do not guess these values from screenshots when the browser can show the exact computed value.
+
+5. Phase 4 — Create the Clean Next.js Project
+Use the current supported Next.js release and App Router. For this migration, use TypeScript, ESLint, and CSS Modules/global CSS. Tailwind is optional, but CSS Modules are easier for a junior developer when exact visual parity is the first goal.
+5.1 Create the application
+
+5.2 Use static export unless a page truly requires server-side Next.js
+
+Why: the current site is primarily public marketing content. Static export removes the Node.js application server from the runtime, reduces operational complexity, and still produces a normal Next.js codebase. If you later need Next.js server actions, route handlers, ISR, or runtime SSR, change the deployment to Next.js standalone mode rather than redesigning the component structure.
+5.3 Recommended source layout
+
+6. Phase 5 — Rebuild the UI as Reusable Components
+Recreate the visual structure; do not copy Elementor DOM wrappers. Build the smallest reusable components that represent the actual site design.
+6.1 Example component
+
+
+6.2 Rebuild in this order
+Global font loading, colors, spacing tokens, page container width, and breakpoints.
+Header and navigation, including the mobile menu.
+Footer and global contact information.
+Homepage sections from top to bottom.
+Reusable ProductCard/ProductGrid and the /product/ page.
+Individual product pages, including Software Solutions and Electric Tricycles.
+Remaining Services, About, Financing, and Contact pages.
+6.3 Keep page URLs identical
+
+7. Phase 6 — Forms, SEO, Accessibility, and Content
+7.1 Contact forms
+A static export cannot host a Next.js server-side form endpoint. If the site needs a contact form, use an OCI API Gateway + OCI Function or another approved form/email API. Keep the form UI in Next.js and send to the external endpoint. Validate input, rate-limit submissions, and never expose private email/API credentials in browser JavaScript.
+7.2 Preserve SEO metadata
+
+☐ Keep current page titles/descriptions unless intentionally improving them.
+☐ Preserve canonical URLs.
+☐ Copy Open Graph/Twitter images and metadata.
+☐ Create sitemap.xml and robots.txt in the new application.
+☐ Use descriptive image alt text where the image conveys content.
+☐ Verify keyboard navigation, labels, contrast, headings, and focus states.
+8. Phase 7 — Visual Regression Loop
+This is the quality-control loop that makes “almost exactly the same” measurable instead of subjective.
+8.1 Run the Next.js site locally
+
+8.2 Compare against the WordPress baseline
+Copy the Playwright visual test and its snapshot directory into the Next.js repository, or point the migration test project at the local site. Do not regenerate the baseline during normal comparison.
+
+When a test fails, Playwright produces expected/actual/difference artifacts. Fix the CSS or component, rerun the specific page, and repeat until the visual difference is accepted.
+8.3 Debugging order for a visual mismatch
+Confirm the same viewport and browser project were used.
+Confirm the correct font file and font weight loaded.
+Compare container width, section padding, and element gaps.
+Compare line-height and letter spacing before changing individual margins.
+Compare image crop/object-fit and aspect ratio.
+Then fix small borders, shadows, radii, and icon spacing.
+9. Phase 8 — Production Build and Container
+9.1 Verify static production output
+
+9.2 Nginx configuration
+
+9.3 Dockerfile
+
+9.4 Test the exact production container locally
+
+10. Phase 9 — Deploy to OCI
+Recommended simple production topology: public OCI Load Balancer → private OCI Container Instance running the Nginx/Next.js static container. Store the image in OCI Container Registry (OCIR). OCI documents Container Instances as a serverless container service suitable when Kubernetes orchestration is not required.
+10.1 Push the image to OCIR
+
+Use immutable image tags such as the Git commit SHA. Do not deploy production from a mutable “latest” tag.
+10.2 Create the OCI Container Instance
+Create or reuse a VCN with a public subnet for the load balancer and a private subnet for the container instance.
+Ensure the private subnet can reach OCIR. OCI documentation recommends a Service Gateway when pulling OCIR images from a private subnet.
+Create the Container Instance from the OCIR image and expose container port 8080.
+Allow inbound TCP 8080 only from the load balancer subnet/security group, not from the public internet.
+Confirm the container is running and /health returns HTTP 200 from within the network path.
+10.3 Create the public Load Balancer
+Create an OCI Load Balancer in the public subnet.
+Create a backend set pointing to the Container Instance private IP on port 8080.
+Configure the backend health check path as /health.
+Create an HTTPS listener on port 443 and attach a CA-issued certificate for nokinc.com / www.nokinc.com. Optionally redirect HTTP 80 to HTTPS.
+Test through the load balancer public IP/temporary hostname before touching DNS.
+10.4 DNS cutover
+At least a day before cutover, lower the existing DNS TTL to approximately 300 seconds if your DNS provider permits it.
+Create a staging hostname such as next.nokinc.com pointing to the new OCI load balancer and perform final acceptance testing.
+Record the current WordPress DNS values so rollback is one edit, not an investigation.
+Change the nokinc.com/www records to the OCI load balancer public IP or provider-supported target.
+Verify from an incognito browser and a separate network/mobile connection.
+Keep WordPress intact during the rollback window. Only decommission it after logs, forms, analytics, and page checks are clean.
+11. Phase 10 — Minimal CI/CD After the First Manual Deployment
+The junior developer should complete one manual deployment first so the infrastructure is understood. Then automate the exact same steps.
+
+Add OCIR login/push and OCI deployment only after the manual path works. Store OCI credentials or workload identity values in GitHub environments/secrets; never commit them to the repository.
+12. How to Find and Correct Old Placeholder Content in WordPress
+12.1 Important correction about the earlier “Lorem ipsum” report
+Your Ctrl+F result is meaningful. The web source I previously used for the homepage is a crawler snapshot marked as approximately seven months old, not a guaranteed live copy of what your browser is rendering today. Therefore, do not send the junior developer hunting the current homepage solely because that old crawl contained “Lorem ipsum.” The correct source of truth is the current WordPress database/editor plus the current live browser.
+A more recent indexed result (approximately five months old) still shows Lorem ipsum on the Electric Tricycles page, and the older Software Solutions crawl also contains Lorem ipsum. These are leads to verify, not proof that the text remains live today.
+12.2 Definitive method #1 — Search the WordPress database with WP-CLI
+If the host provides WP-CLI, this is the fastest definitive search because Elementor page content is commonly stored in WordPress post metadata rather than as simple visible page text.
+
+WP-CLI reports the table, column, row/primary key, and nearby match. Elementor content often appears in wp_postmeta (frequently in _elementor_data). Do not manually edit serialized Elementor JSON in the database. Use the match to identify the page/template, then edit it through Elementor.
+12.3 Map an Elementor post ID back to the page/template
+If the database result identifies a post_id, map it to the WordPress title before editing. Replace wp_ with your actual database prefix if different.
+
+12.4 Definitive method #2 — Elementor Structure/Navigator
+WP Admin → Pages → choose the page → Edit with Elementor.
+Open Elementor Structure/Navigator with Ctrl+I (or click the Structure icon). Elementor documents this view as the page tree and specifically recommends it for accessing hidden/overlapped elements.
+Expand every container/section and inspect Heading, Text Editor, Counter, Icon List, HTML, and template widgets. Structure can reach elements hidden behind z-index, negative margins, or absolute positioning.
+Switch the editor to Desktop, Tablet, and Mobile. Check Advanced → Responsive on containers/widgets if content appears only at a specific breakpoint.
+Replace placeholder text in the correct widget, click Update, then verify in an incognito browser.
+12.5 Check Theme Builder and global templates
+Placeholder text in a header/footer/global section may not belong to the current page. Use Elementor Finder (Ctrl+E) to jump to pages/templates/settings, and inspect Templates / Theme Builder for Header, Footer, Single Page, Archive, and saved sections. Confirm each template’s display conditions.
+12.6 If WP-CLI is unavailable — use phpMyAdmin search
+Open phpMyAdmin from the hosting panel and select the WordPress database.
+Use the database Search tab and search for “Lorem ipsum” across all tables.
+Note the matching table, record ID, and post_id. Elementor content is often in wp_postmeta.
+Map that post_id to wp_posts.ID to get the page/template title.
+Edit the page/template in WordPress/Elementor; do not directly rewrite Elementor JSON in phpMyAdmin unless you are deliberately performing a backed-up, tested database operation.
+12.7 Clear Elementor and site cache after corrections
+Elementor’s current documentation says to use WP Admin → Elementor → Editor → Tools → Clear Files & Data after design/content changes when cached files may be stale. Also purge any hosting/cache plugin/CDN cache, then verify in a private/incognito browser.
+
+12.8 Current cached/indexed items worth verifying
+
+13. Final Acceptance and WordPress Retirement Checklist
+☐ Run npm run lint and npm run build with zero errors.
+☐ Run all Playwright visual tests against the production-style build, not only next dev.
+☐ Check every URL from urls.txt for HTTP 200 or an intentional redirect.
+☐ Search the new repository and rendered HTML for wordpress, wp-content, wp-json, elementor, and old WordPress hostnames; there should be no required runtime dependency.
+☐ Test desktop, tablet, and phone navigation on real browsers/devices.
+☐ Submit every form and confirm receipt/processing.
+☐ Verify TLS certificate, HTTPS redirect, canonical URLs, sitemap.xml, robots.txt, and analytics.
+☐ Verify OCI load balancer health checks and container restart behavior.
+☐ Keep the WordPress backup and old DNS values documented.
+☐ After the agreed rollback window, disable WordPress public traffic, archive the final backup, and then cancel/retire the WordPress hosting.
+14. Independent Review of This Plan
+
+Decision: this is the recommended execution plan for a junior developer because it teaches the migration process, preserves the current look, avoids WordPress technical debt, and keeps OCI deployment understandable without introducing infrastructure that the site does not need.
+15. Official References
+Next.js — Static Exports
+Playwright — Visual Comparisons
+Elementor — Structure / Navigator
+Elementor — Finder
+Elementor — Clear Files & Data
+WordPress WP-CLI — db search
+OCI — Container Instances Overview
+OCI — Create a Container Instance
+OCI — Push Images to Container Registry
