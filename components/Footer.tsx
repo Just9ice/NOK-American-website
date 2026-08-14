@@ -10,10 +10,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <Image
-              src="/images/footer.png"
+              src="/images/NOK-Inc-Company-LogoFinal-02-2.png"
               alt="NOK Inc Logo"
               width={150}
-              height={150}
+              height={35}
               className="mb-6"
             />
             <p className="text-gray-400">

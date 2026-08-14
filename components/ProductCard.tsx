@@ -10,35 +10,29 @@ type Props = {
 
 export function ProductCard({ title, href, image, bullets }: Props) {
   return (
-    <article className="flex flex-col bg-white rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl border border-gray-100">
-      <div className="relative h-64 w-full bg-gray-100">
-        <Image
-          src={image}
-          alt={title}
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        />
-      </div>
-      <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-2xl font-bold text-[#17365d] mb-4">{title}</h3>
-        <ul className="space-y-2 mb-6 flex-grow">
+    <Link href={href} className="group block h-full">
+      <article className="flex flex-col bg-white rounded-3xl p-5 shadow-sm border border-gray-100 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 h-full">
+        <h3 className="text-lg font-medium text-center text-gray-900 mb-4">{title}</h3>
+        <div className="relative w-full aspect-video rounded-2xl overflow-hidden mb-5">
+          <Image
+            src={image}
+            alt={title}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        </div>
+        <ul className="space-y-2 flex-grow">
           {bullets.map((item, index) => (
-            <li key={index} className="flex items-start text-gray-600">
-              <svg className="h-5 w-5 text-green-500 mr-2 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+            <li key={index} className="flex items-center text-xs xl:text-sm text-gray-600 border border-gray-100 rounded-full px-3 py-2 bg-white">
+              <svg className="h-4 w-4 text-[#2b593f] mr-2 shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
-              <span>{item}</span>
+              <span className="truncate">{item}</span>
             </li>
           ))}
         </ul>
-        <Link
-          href={href}
-          className="inline-flex justify-center items-center px-4 py-2 border border-[#17365d] text-base font-medium rounded-md text-[#17365d] bg-white hover:bg-[#17365d] hover:text-white transition-colors mt-auto"
-        >
-          Learn more
-        </Link>
-      </div>
-    </article>
+      </article>
+    </Link>
   );
 }

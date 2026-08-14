@@ -166,11 +166,11 @@ export default function Home() {
         <div className="relative overflow-hidden rounded-4xl h-[400px] max-w-7xl mx-auto">
           {/* Background Image */}
           <Image
-            src="/images/ev-charging.jpg"
+            src="/images/charging.jpg"
             alt="EV Charging Station"
             fill
             quality={100}
-            style={{ objectFit: "fill", objectPosition: "center" }}
+            style={{ objectFit: "cover", objectPosition: "center" }}
           />
 
           {/* Bottom gradient overlay so text is readable */}
