@@ -21,9 +21,9 @@ export default function SoftwareSolutionsPage() {
           }}
         />
         {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/40 z-0" />
+        {/* <div className="absolute inset-0 bg-black/40 z-0" /> */}
 
-        <div className="relative z-10 max-w-3xl mx-auto text-center bg-black/10 backdrop-blur-xl border border-white/20 shadow-xl shadow-green-100 rounded-lg p-10 mt-5">
+        <div className="relative z-10 max-w-3xl mx-auto text-center bg-black/40 backdrop-blur-xl border border-white/20 shadow-xl shadow-green-100 rounded-lg p-10 mt-15">
           <h1 className="text-4xl font-extrabold sm:text-5xl mb-6">
             Powering Industry Through Intelligent Software Engineering, Data,
             and AI Solutions
@@ -39,8 +39,10 @@ export default function SoftwareSolutionsPage() {
 
         {/* Flickering Scroll Indicator */}
         <div className="relative z-20 mt-16 animate-bounce">
-          <div className="animate-pulse text-white/80 flex flex-col items-center">
-            <span className="text-xs uppercase tracking-[0.2em] mb-2 font-medium">Scroll</span>
+          <div className="animate-pulse text-black/80 flex flex-col items-center">
+            <span className="text-xs uppercase tracking-[0.2em] mb-2 font-medium">
+              Scroll
+            </span>
             <svg
               className="w-8 h-8"
               fill="none"
