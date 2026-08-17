@@ -20,15 +20,13 @@ export default function SoftwareSolutionsPage() {
             objectFit: "cover",
           }}
         />
-        {/* Dark Overlay */}
-        {/* <div className="absolute inset-0 bg-black/40 z-0" /> */}
 
         <div className="relative z-10 max-w-3xl mx-auto text-center bg-black/40 backdrop-blur-xl border border-white/20 shadow-xl shadow-green-100 rounded-lg p-10 mt-15">
           <h1 className="text-4xl font-extrabold sm:text-5xl mb-6">
             Powering Industry Through Intelligent Software Engineering, Data,
             and AI Solutions
           </h1>
-          <p className="mt-4 text-xl text-gray-200">
+          <p className="mt-4 text-xl text-gray-100">
             NOK Inc designs, builds, modernizes, and operates production
             software across cloud, data, AI, web, mobile, and distributed
             systems. We work from architecture through implementation,
@@ -39,7 +37,7 @@ export default function SoftwareSolutionsPage() {
 
         {/* Flickering Scroll Indicator */}
         <div className="relative z-20 mt-16 animate-bounce">
-          <div className="animate-pulse text-black/80 flex flex-col items-center">
+          <div className="animate-pulse text-green-500/80 flex flex-col items-center">
             <span className="text-xs uppercase tracking-[0.2em] mb-2 font-medium">
               Scroll
             </span>
@@ -60,7 +58,7 @@ export default function SoftwareSolutionsPage() {
         </div>
       </Section>
 
-      <Section>
+      <Section className="!pb-8 sm:!pb-12">
         <h1 className="text-5xl font-bold text-center text-[#17365d] mb-5">
           Software Engineering, Data & AI Solutions
         </h1>
@@ -143,7 +141,7 @@ export default function SoftwareSolutionsPage() {
         </div>
       </Section>
 
-      <Section className="bg-gray-50">
+      <Section className="bg-gray-50 !pt-8 sm:!pt-12">
         {/* Proven Product section */}
         <div className="flex-1 p-8 bg-white rounded-xl">
           <h3 className="text-3xl font-bold text-center text-[#17365d] mb-4">
