@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function ContactPage() {
   return (
     <>
-      <div className="flex justify-center pt-10 justify-center">
+      <div className="flex justify-center pt-5 justify-center">
         <Section className="bg-[#17365d] w-fit">
           <Image
             src="/images/contact.jpg"

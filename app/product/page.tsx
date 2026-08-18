@@ -87,14 +87,14 @@ const products = [
 
 export default function ProductsPage() {
   return (
-    <Section className="bg-gray-50 pt-10">
-      <div className="text-center mb-16 mt-10">
+    <Section className="bg-gray-50 !pt-20">
+      <div className="text-center mb-10 mt-10">
         <Image
           src="/images/solar-farming.jpg"
           alt="Products"
           width={1000}
           height={500}
-          className="rounded-lg mb-8 w-full h-119 object-cover"
+          className="rounded-3xl mb-8 w-full h-119 object-cover"
         />
         <h1 className="text-4xl font-extrabold text-[#17365d] sm:text-5xl">
           Our Products

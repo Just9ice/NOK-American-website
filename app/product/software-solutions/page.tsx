@@ -6,7 +6,7 @@ export default function SoftwareSolutionsPage() {
   return (
     <>
       <Section
-        className="relative overflow-hidden text-white flex flex-col items-center justify-center text-center pt-48 pb-15"
+        className="relative overflow-hidden text-white flex flex-col items-center justify-center text-center !pt-10 pb-15"
         bgWhite={false}
       >
         <Image
