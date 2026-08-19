@@ -7,7 +7,7 @@ export default function ServicesPage() {
   return (
     <>
       <div className="bg-green-100/15">
-        <Section className="!bg-transparent text-center">
+        <Section className="!bg-transparent text-center !pt-28 md:!pt-32">
           {/* Page Image Banner */}
           <div className="flex items-center justify-center py-5">
             <ScrollReveal animation="scale-in">
@@ -18,24 +18,24 @@ export default function ServicesPage() {
                 height={600}
                 quality={70}
                 priority={true}
-                className="w-[1200px] h-[500px] object-cover rounded-3xl"
+                className="w-full max-w-[1200px] h-[300px] md:h-[500px] object-cover rounded-3xl"
               />
             </ScrollReveal>
           </div>
           <ScrollReveal animation="fade-up" delay={0.2}>
-            <h1 className="text-4xl font-extrabold sm:text-5xl mb-6 text-[#17365d]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 text-[#17365d]">
               Our Services
             </h1>
           </ScrollReveal>
           <ScrollReveal animation="fade-up" delay={0.4}>
-            <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-600">
+            <p className="mt-4 max-w-2xl mx-auto text-lg sm:text-xl text-gray-600">
               Professional installation, maintenance, and support for all your
               sustainable energy solutions.
             </p>
           </ScrollReveal>
         </Section>
         <Section className="!bg-transparent">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             <ScrollReveal animation="fade-up" delay={0.1} className="bg-white p-8 rounded-xl shadow border border-gray-100 items-center text-center">
               <div className="bg-green-900 p-3 rounded-lg w-fit mx-auto mb-5">
                 <HardHat className="h-8 w-8 text-white" />

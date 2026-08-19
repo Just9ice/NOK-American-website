@@ -88,7 +88,7 @@ const products = [
 
 export default function ProductsPage() {
   return (
-    <Section className="bg-gray-50 !pt-20">
+    <Section className="bg-gray-50 !pt-28 md:!pt-32">
       <div className="text-center mb-10 mt-10">
         <ScrollReveal animation="scale-in">
           <Image
@@ -100,12 +100,12 @@ export default function ProductsPage() {
           />
         </ScrollReveal>
         <ScrollReveal animation="fade-up" delay={0.2}>
-          <h1 className="text-4xl font-extrabold text-[#17365d] sm:text-5xl">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#17365d]">
             Our Products
           </h1>
         </ScrollReveal>
         <ScrollReveal animation="fade-up" delay={0.4}>
-          <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-600">
+          <p className="mt-4 max-w-2xl mx-auto text-lg sm:text-xl text-gray-600">
             Explore our range of sustainable energy solutions and software
             engineering services.
           </p>

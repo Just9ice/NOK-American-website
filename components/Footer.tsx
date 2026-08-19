@@ -82,7 +82,7 @@ export default function Footer() {
             </ul>
           </ScrollReveal>
         </div>
-        <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400 flex items-center justify-between">
+        <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400 flex flex-col-reverse md:flex-row items-center justify-between gap-4 md:gap-0">
           <p>&copy; {new Date().getFullYear()} NOK Inc. All rights reserved.</p>
           <div className="flex space-x-4">
             <a

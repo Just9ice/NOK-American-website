@@ -7,7 +7,7 @@ export default function SoftwareSolutionsPage() {
   return (
     <>
       <Section
-        className="relative overflow-hidden text-white flex flex-col items-center justify-center text-center pt-10 pb-15"
+        className="!pt-28 md:!pt-32 relative overflow-hidden text-white flex flex-col items-center justify-center text-center pt-10 pb-15"
         bgWhite={false}
       >
         <Image
@@ -24,13 +24,13 @@ export default function SoftwareSolutionsPage() {
 
         <div className="relative z-10 max-w-3xl mx-auto text-center bg-black/40 backdrop-blur-xl border border-white/20 shadow-xl shadow-green-100 rounded-lg p-10 mt-15">
           <ScrollReveal animation="fade-up">
-            <h1 className="text-4xl font-extrabold sm:text-5xl mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6">
               Powering Industry Through Intelligent Software Engineering, Data,
               and AI Solutions
             </h1>
           </ScrollReveal>
           <ScrollReveal animation="fade-up" delay={0.2}>
-            <p className="mt-4 text-xl text-gray-100">
+            <p className="mt-4 text-lg sm:text-xl text-gray-100">
               NOK Inc designs, builds, modernizes, and operates production
               software across cloud, data, AI, web, mobile, and distributed
               systems. We work from architecture through implementation,
@@ -41,7 +41,7 @@ export default function SoftwareSolutionsPage() {
         </div>
 
         {/* Flickering Scroll Indicator */}
-        <div className="relative z-20 mt-16 animate-bounce">
+        <div className="hidden md:block relative z-20 mt-16 animate-bounce">
           <div className="animate-pulse text-green-500/80 flex flex-col items-center">
             <span className="text-xs uppercase tracking-[0.2em] mb-2 font-medium">
               Scroll
@@ -154,7 +154,7 @@ export default function SoftwareSolutionsPage() {
         {/* Proven Product section */}
         <div className="flex-1 p-8 bg-white rounded-xl">
           <ScrollReveal animation="fade-up">
-            <h3 className="text-3xl font-bold text-center text-[#17365d] mb-4">
+            <h3 className="text-2xl sm:text-3xl font-bold text-center text-[#17365d] mb-4">
               Software That Powers Real Work
             </h3>
           </ScrollReveal>
@@ -168,7 +168,7 @@ export default function SoftwareSolutionsPage() {
               and use.
             </p>
           </ScrollReveal>
-          <div className="flex justify-center gap-4 sm:gap-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
             <ScrollReveal animation="slide-in-left" delay={0.4}>
               <Link
                 href="https://apps.apple.com/ng/app/flur/id6759227491"
@@ -219,3 +219,4 @@ export default function SoftwareSolutionsPage() {
     </>
   );
 }
+

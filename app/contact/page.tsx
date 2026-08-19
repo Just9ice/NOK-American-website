@@ -5,9 +5,9 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 export default function ContactPage() {
   return (
     <>
-      <div className="flex justify-center pt-5 justify-center">
-        <Section className="bg-[#17365d] w-fit">
-          <ScrollReveal animation="slide-in-left">
+      <div className="flex flex-col lg:flex-row justify-center items-center lg:items-start pt-28 md:pt-42 w-full">
+        <Section className="bg-[#17365d] w-full lg:w-fit flex justify-center px-4 sm:px-8">
+          <ScrollReveal animation="slide-in-left" className="w-full md:pt-25">
             <Image
               src="/images/contact.jpg"
               alt="Contact Us"
@@ -15,14 +15,14 @@ export default function ContactPage() {
               height={800}
               quality={100}
               priority={true}
-              className="w-[700px] h-[800px] object-fill rounded-3xl"
+              className="w-full max-w-[700px] h-auto md:h-[800px] object-cover rounded-3xl"
             />
           </ScrollReveal>
         </Section>
-        <Section>
+        <Section className="w-full lg:w-2/3 px-4 sm:px-8">
           <div className="pb-5">
             <ScrollReveal animation="fade-up">
-              <h1 className="text-4xl font-medium sm:text-5xl mb-1 w-fit">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium mb-1 w-full text-center lg:text-left">
                 Contact Us
               </h1>
               <p className="mt-1 max-w-2xl text-lg text-gray-700">
@@ -33,7 +33,7 @@ export default function ContactPage() {
             <ScrollReveal
               animation="scale-in"
               delay={0.2}
-              className="bg-white p-8"
+              className="bg-white p-4 sm:p-8 mt-4 w-full"
             >
               <div className="max-w-4xl mx-auto mt-2">
                 <div>
@@ -84,7 +84,7 @@ export default function ContactPage() {
             <ScrollReveal
               animation="slide-in-right"
               delay={0.2}
-              className="bg-gray-50 p-8 rounded-xl border border-gray-100"
+              className="bg-gray-50 p-4 sm:p-8 rounded-xl border border-gray-100 w-full mt-6"
             >
               <h2 className="text-2xl font-bold text-[#17365d] mb-6">
                 Send us a message

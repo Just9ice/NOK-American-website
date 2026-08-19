@@ -7,7 +7,7 @@ export default function AboutUsPage() {
   return (
     <>
       <div className="bg-green-100/15">
-        <Section className="pt-16 !pb-10 text-center !bg-transparent">
+        <Section className="!pt-28 md:!pt-32 !pb-10 text-center !bg-transparent">
           {/* Page Image Banner */}
           <div className="flex items-center justify-center py-5">
             <ScrollReveal animation="scale-in">
@@ -18,15 +18,15 @@ export default function AboutUsPage() {
                 height={600}
                 quality={100}
                 priority={true}
-                className="w-[1200px] h-[500px] object-cover rounded-3xl"
+                className="w-full max-w-[1200px] h-[300px] md:h-[500px] object-cover rounded-3xl"
               />
             </ScrollReveal>
           </div>
           <ScrollReveal animation="fade-up" delay={0.2}>
-            <h1 className="text-4xl font-extrabold sm:text-5xl mb-6">About Us</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6">About Us</h1>
           </ScrollReveal>
           <ScrollReveal animation="fade-up" delay={0.3}>
-            <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-600">
+            <p className="mt-4 max-w-2xl mx-auto text-lg sm:text-xl text-gray-600">
               Our commitment to a sustainable and empowered future.
             </p>
           </ScrollReveal>
@@ -49,7 +49,7 @@ export default function AboutUsPage() {
               Commitment
             </span>
           </div>
-          <h2 className="text-4xl font-extrabold text-gray-900">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900">
             Our Commitment
           </h2>
         </div>

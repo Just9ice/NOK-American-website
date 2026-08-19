@@ -6,7 +6,7 @@ export default function FinancingPage() {
   return (
     <>
       <div className="bg-green-100/15">
-        <Section className="!bg-transparent pt-16 !pb-10 text-center">
+        <Section className="!bg-transparent !pt-28 md:!pt-32 !pb-10 text-center">
           {/* Page Image Banner */}
           <div className="flex items-center justify-center py-5">
             <ScrollReveal animation="scale-in">
@@ -17,17 +17,17 @@ export default function FinancingPage() {
                 height={600}
                 quality={70}
                 priority={true}
-                className="w-[1200px] h-[500px] object-cover rounded-3xl"
+                className="w-full max-w-[1200px] h-[300px] md:h-[500px] object-cover rounded-3xl"
               />
             </ScrollReveal>
           </div>
           <ScrollReveal animation="fade-up" delay={0.2}>
-            <h1 className="text-4xl font-extrabold sm:text-5xl mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6">
               Financing
             </h1>
           </ScrollReveal>
           <ScrollReveal animation="fade-up" delay={0.4}>
-            <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-600">
+            <p className="mt-4 max-w-2xl mx-auto text-lg sm:text-xl text-gray-600">
               Flexible payment plans and options to make sustainable energy
               accessible.
             </p>
@@ -107,7 +107,7 @@ export default function FinancingPage() {
 
           <div className="max-w-3xl mx-auto text-center">
             <ScrollReveal animation="fade-up">
-              <p className="text-xl text-gray-600 mb-8">
+              <p className="text-lg sm:text-xl text-gray-600 mb-8">
                 We offer various financing options to ensure you can transition to
                 cleaner energy and smarter mobility without upfront financial
                 strain.
