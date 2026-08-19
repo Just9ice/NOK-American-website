@@ -59,7 +59,7 @@ export default function Home() {
               </Link>
               <Link
                 href="/contact/"
-                className="group flex items-center justify-center px-8 py-3 border border-white/10 backdrop-blur-xl text-base font-medium rounded-md text-white bg-transparent hover:bg-green-600 hover:bg-opacity-10 md:py-4 md:text-lg md:px-10 hover:shadow-[0_0_30px_rgba(134,239,172,0.5)]"
+                className="group flex items-center justify-center px-8 py-3 border border-white/10 backdrop-blur-xl text-base font-medium rounded-md text-white bg-black/10 hover:bg-green-600 hover:bg-opacity-10 md:py-4 md:text-lg md:px-10 hover:shadow-[0_0_30px_rgba(134,239,172,0.5)]"
               >
                 Get in Touch
                 <span className="ml-2 text-white group-hover:text-white transition-all duration-300 ease-out group-hover:translate-x-2">
