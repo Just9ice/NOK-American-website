@@ -62,7 +62,15 @@ def create_document():
     doc.add_paragraph('- Contact Page: We built a clean layout displaying your office address, phone numbers, and a professional message form.', style='List Bullet')
 
     # Step 6
-    doc.add_heading('Step 6: Quality Assurance and Bug Fixing', level=2)
+    doc.add_heading('Step 6: Adding Premium Scroll Animations', level=2)
+    doc.add_paragraph('To give the website a truly modern, high-end feel, we implemented "Scroll Reveal" animations:')
+    doc.add_paragraph('- How it works: As you scroll down the page, elements (like images, text, and cards) smoothly appear into view rather than just being there from the start.', style='List Bullet')
+    doc.add_paragraph('- Zero Bloat: Instead of relying on heavy third-party animation libraries that slow down the website, we custom-built this feature using lightweight CSS (styling rules) and modern browser features (Intersection Observer).', style='List Bullet')
+    doc.add_paragraph('- The Effects: We created various effects like "Fade Up" (elements glide upwards), "Scale In" (banners subtle grow), and "Staggered Cascades" (grids of cards appear one after another in a sequence).', style='List Bullet')
+    doc.add_paragraph('- Accessibility: The animations automatically disable themselves if a user has "reduced motion" settings enabled on their device, ensuring a comfortable experience for everyone.', style='List Bullet')
+
+    # Step 7
+    doc.add_heading('Step 7: Quality Assurance and Bug Fixing', level=2)
     doc.add_paragraph('Finally, we ran automated tools to check our work for any mistakes:')
     doc.add_paragraph('- Linter (ESLint): This acts like a grammar checker for code. It found a couple of minor issues (like an unused image tool and a broken image link), which we immediately fixed.', style='List Bullet')
     doc.add_paragraph('- Type Checker (TypeScript): This ensures that all the code speaks the same language and fits together perfectly without errors. The website passed this check with flying colors.', style='List Bullet')

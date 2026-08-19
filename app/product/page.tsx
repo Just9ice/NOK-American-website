@@ -1,5 +1,6 @@
 import { ProductCard } from "@/components/ProductCard";
 import Section from "@/components/Section";
+import { ScrollReveal } from "@/components/ScrollReveal";
 import Image from "next/image";
 
 const products = [
@@ -89,24 +90,32 @@ export default function ProductsPage() {
   return (
     <Section className="bg-gray-50 !pt-20">
       <div className="text-center mb-10 mt-10">
-        <Image
-          src="/images/solar-farming.jpg"
-          alt="Products"
-          width={1000}
-          height={500}
-          className="rounded-3xl mb-8 w-full h-119 object-cover"
-        />
-        <h1 className="text-4xl font-extrabold text-[#17365d] sm:text-5xl">
-          Our Products
-        </h1>
-        <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-600">
-          Explore our range of sustainable energy solutions and software
-          engineering services.
-        </p>
+        <ScrollReveal animation="scale-in">
+          <Image
+            src="/images/solar-farming.jpg"
+            alt="Products"
+            width={1000}
+            height={500}
+            className="rounded-3xl mb-8 w-full h-119 object-cover"
+          />
+        </ScrollReveal>
+        <ScrollReveal animation="fade-up" delay={0.2}>
+          <h1 className="text-4xl font-extrabold text-[#17365d] sm:text-5xl">
+            Our Products
+          </h1>
+        </ScrollReveal>
+        <ScrollReveal animation="fade-up" delay={0.4}>
+          <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-600">
+            Explore our range of sustainable energy solutions and software
+            engineering services.
+          </p>
+        </ScrollReveal>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {products.map((product) => (
-          <ProductCard key={product.title} {...product} />
+        {products.map((product, i) => (
+          <ScrollReveal key={product.title} animation="fade-up" delay={i * 0.1}>
+            <ProductCard {...product} />
+          </ScrollReveal>
         ))}
       </div>
     </Section>

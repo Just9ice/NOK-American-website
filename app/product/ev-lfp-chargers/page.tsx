@@ -1,24 +1,29 @@
 import Section from '@/components/Section';
+import { ScrollReveal } from '@/components/ScrollReveal';
 
 export default function ProductPage() {
   return (
     <>
       <Section className="bg-[#17365d] text-white pt-16 pb-24 text-center" bgWhite={false}>
-        <h1 className="text-4xl font-extrabold sm:text-5xl mb-6">EV & LFP Chargers</h1>
-        <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-200">
-          High-quality, reliable, and sustainable ev & lfp chargers for your needs.
-        </p>
+        <ScrollReveal animation="fade-up">
+          <h1 className="text-4xl font-extrabold sm:text-5xl mb-6">EV & LFP Chargers</h1>
+        </ScrollReveal>
+        <ScrollReveal animation="fade-up" delay={0.2}>
+          <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-200">
+            High-quality, reliable, and sustainable ev & lfp chargers for your needs.
+          </p>
+        </ScrollReveal>
       </Section>
       <Section>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-white p-8 rounded-xl shadow border border-gray-100">
+          <ScrollReveal animation="fade-up" className="bg-white p-8 rounded-xl shadow border border-gray-100">
             <h3 className="text-xl font-bold text-[#17365d] mb-4">Features</h3>
             <ul className="space-y-2 text-gray-600">
               <li>• High- and low-voltage lithium packs</li>
               <li>• Hybrid-ready with solar, grid, or generator</li>
               <li>• Remote monitoring via web and mobile</li>
             </ul>
-          </div>
+          </ScrollReveal>
         </div>
       </Section>
     </>

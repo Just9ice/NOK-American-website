@@ -2,5 +2,135 @@
 
 body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
+/* Base styles for scroll reveal */
+.scroll-reveal {
+  opacity: 0;
+  will-change: opacity, transform, filter;
+}
+
+/* When the element is visible, apply the animation */
+.scroll-reveal[data-visible="true"] {
+  animation-duration: var(--animation-duration, 0.8s);
+  animation-delay: var(--animation-delay, 0s);
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); /* Premium easing curve */
+  animation-fill-mode: forwards;
+}
+
+/* Individual Animations */
+
+/* Fade Up */
+.scroll-reveal.fade-up {
+  transform: translateY(40px);
+}
+.scroll-reveal.fade-up[data-visible="true"] {
+  animation-name: fadeUpKeyframes;
+}
+@keyframes fadeUpKeyframes {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade In */
+.scroll-reveal.fade-in[data-visible="true"] {
+  animation-name: fadeInKeyframes;
+}
+@keyframes fadeInKeyframes {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Scale In */
+.scroll-reveal.scale-in {
+  transform: scale(0.95);
+}
+.scroll-reveal.scale-in[data-visible="true"] {
+  animation-name: scaleInKeyframes;
+}
+@keyframes scaleInKeyframes {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Blur In */
+.scroll-reveal.blur-in {
+  filter: blur(10px);
+}
+.scroll-reveal.blur-in[data-visible="true"] {
+  animation-name: blurInKeyframes;
+}
+@keyframes blurInKeyframes {
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+/* Slide In Left */
+.scroll-reveal.slide-in-left {
+  transform: translateX(-50px);
+}
+.scroll-reveal.slide-in-left[data-visible="true"] {
+  animation-name: slideInLeftKeyframes;
+}
+@keyframes slideInLeftKeyframes {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide In Right */
+.scroll-reveal.slide-in-right {
+  transform: translateX(50px);
+}
+.scroll-reveal.slide-in-right[data-visible="true"] {
+  animation-name: slideInRightKeyframes;
+}
+@keyframes slideInRightKeyframes {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Respect user preferences for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -1,6 +1,7 @@
 import Section from "@/components/Section";
 import Image from "next/image";
 import { Target, Users, Leaf, Handshake } from "lucide-react";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 export default function AboutUsPage() {
   return (
@@ -9,26 +10,34 @@ export default function AboutUsPage() {
         <Section className="pt-16 !pb-10 text-center !bg-transparent">
           {/* Page Image Banner */}
           <div className="flex items-center justify-center py-5">
-            <Image
-              src="/images/about.jpg"
-              alt="NOK Inc Banner"
-              width={1200}
-              height={600}
-              quality={100}
-              priority={true}
-              className="w-[1200px] h-[500px] object-cover rounded-3xl"
-            />
+            <ScrollReveal animation="scale-in">
+              <Image
+                src="/images/about.jpg"
+                alt="NOK Inc Banner"
+                width={1200}
+                height={600}
+                quality={100}
+                priority={true}
+                className="w-[1200px] h-[500px] object-cover rounded-3xl"
+              />
+            </ScrollReveal>
           </div>
-          <h1 className="text-4xl font-extrabold sm:text-5xl mb-6">About Us</h1>
-          <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-600">
-            Our commitment to a sustainable and empowered future.
-          </p>
-          <p className="text-sm mt-4 mx-auto text-gray-600">
-            At NOK Inc., our mission is simple: deliver dependable, affordable,
-            and sustainable energy and mobility solutions. We believe clean
-            power as smarter transport should be practical, accessible, and easy
-            to use for everyone - from household to factories.
-          </p>
+          <ScrollReveal animation="fade-up" delay={0.2}>
+            <h1 className="text-4xl font-extrabold sm:text-5xl mb-6">About Us</h1>
+          </ScrollReveal>
+          <ScrollReveal animation="fade-up" delay={0.3}>
+            <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-600">
+              Our commitment to a sustainable and empowered future.
+            </p>
+          </ScrollReveal>
+          <ScrollReveal animation="fade-up" delay={0.4}>
+            <p className="text-sm mt-4 mx-auto text-gray-600">
+              At NOK Inc., our mission is simple: deliver dependable, affordable,
+              and sustainable energy and mobility solutions. We believe clean
+              power as smarter transport should be practical, accessible, and easy
+              to use for everyone - from household to factories.
+            </p>
+          </ScrollReveal>
         </Section>
       </div>
       <Section className="!bg-green-100/15 !pt-5">
@@ -47,7 +56,7 @@ export default function AboutUsPage() {
 
         {/* Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          <div className="bg-white p-8 rounded-2xl shadow-sm text-center">
+          <ScrollReveal animation="fade-up" delay={0.1} className="bg-white p-8 rounded-2xl shadow-sm text-center">
             <div className="bg-green-900 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5">
               <Target size={24} className="text-white" />
             </div>
@@ -57,9 +66,9 @@ export default function AboutUsPage() {
             <p className="text-gray-500 text-sm">
               Cut fuel costs, improve uptime, and empower communities.
             </p>
-          </div>
+          </ScrollReveal>
 
-          <div className="bg-white p-8 rounded-2xl shadow-sm text-center">
+          <ScrollReveal animation="fade-up" delay={0.2} className="bg-white p-8 rounded-2xl shadow-sm text-center">
             <div className="bg-green-900 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5">
               <Users size={24} className="text-white" />
             </div>
@@ -69,9 +78,9 @@ export default function AboutUsPage() {
             <p className="text-gray-500 text-sm">
               Local jobs in installation, service, and software support.
             </p>
-          </div>
+          </ScrollReveal>
 
-          <div className="bg-white p-8 rounded-2xl shadow-sm text-center">
+          <ScrollReveal animation="fade-up" delay={0.3} className="bg-white p-8 rounded-2xl shadow-sm text-center">
             <div className="bg-green-900 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5">
               <Leaf size={24} className="text-white" />
             </div>
@@ -81,9 +90,9 @@ export default function AboutUsPage() {
             <p className="text-gray-500 text-sm">
               Lower emissions, quieter streets, and safer spaces.
             </p>
-          </div>
+          </ScrollReveal>
 
-          <div className="bg-white p-8 rounded-2xl shadow-sm text-center">
+          <ScrollReveal animation="fade-up" delay={0.4} className="bg-white p-8 rounded-2xl shadow-sm text-center">
             <div className="bg-green-900 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5">
               <Handshake size={24} className="text-white" />
             </div>
@@ -93,7 +102,7 @@ export default function AboutUsPage() {
             <p className="text-gray-500 text-sm">
               Long-term collaboration with utilities, municipalities, & OEMs.
             </p>
-          </div>
+          </ScrollReveal>
         </div>
       </Section>
     </>

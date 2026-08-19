@@ -2,13 +2,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { ScrollReveal } from "./ScrollReveal";
 
 export default function Footer() {
   return (
     <footer className="bg-transparent text-white py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
+          <ScrollReveal animation="fade-up" delay={0.1}>
             <Image
               src="/images/NOK-Inc-Company-LogoFinal-02-2.png"
               alt="NOK Inc Logo"
@@ -25,8 +26,8 @@ export default function Footer() {
                 NOK Africa Website
               </a>
             </p>
-          </div>
-          <div>
+          </ScrollReveal>
+          <ScrollReveal animation="fade-up" delay={0.2}>
             <h4 className="font-semibold mb-4 text-[#17365d] bg-white inline-block rounded">
               Quick Links
             </h4>
@@ -52,8 +53,8 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
-          <div>
+          </ScrollReveal>
+          <ScrollReveal animation="fade-up" delay={0.3}>
             <h4 className="font-semibold mb-4 text-[#17365d] bg-white inline-block rounded">
               Contact
             </h4>
@@ -70,8 +71,8 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
-          </div>
-          <div>
+          </ScrollReveal>
+          <ScrollReveal animation="fade-up" delay={0.4}>
             <h4 className="font-semibold mb-4 text-[#17365d] bg-white inline-block rounded">
               Hours
             </h4>
@@ -79,7 +80,7 @@ export default function Footer() {
               <li>Mon – Fri: 7.00 – 22.00</li>
               <li>Sat – Sun: 9.00 – 20.00</li>
             </ul>
-          </div>
+          </ScrollReveal>
         </div>
         <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400 flex items-center justify-between">
           <p>&copy; {new Date().getFullYear()} NOK Inc. All rights reserved.</p>
