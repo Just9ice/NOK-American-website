@@ -37,7 +37,7 @@ const products = [
   {
     title: "Electric Tricycles",
     href: "/product/electric-tricycles/",
-    image: "/images/WhatsApp-Image-2026-06-11-at-10.35.15-AM-1024x768.jpeg",
+    image: "/images/rick-saw.jpeg",
     bullets: [
       "High- and low-voltage lithium packs",
       "Hybrid-ready with solar, grid, or generator",
