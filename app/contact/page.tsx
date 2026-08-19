@@ -5,9 +5,9 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 export default function ContactPage() {
   return (
     <>
-      <div className="flex flex-col lg:flex-row justify-center items-center lg:items-start pt-28 md:pt-42 w-full">
-        <Section className="bg-[#17365d] w-full lg:w-fit flex justify-center px-4 sm:px-8">
-          <ScrollReveal animation="slide-in-left" className="w-full md:pt-25">
+      <div className="flex flex-col lg:flex-row justify-center items-center lg:items-start w-full">
+        <Section className="bg-[#17365d] w-full lg:w-fit flex justify-center px-4 sm:px-8 !pt-14 md:!pt-32">
+          <ScrollReveal animation="slide-in-left" className="w-full">
             <Image
               src="/images/contact.jpg"
               alt="Contact Us"
@@ -15,11 +15,11 @@ export default function ContactPage() {
               height={800}
               quality={100}
               priority={true}
-              className="w-full max-w-[700px] h-auto md:h-[800px] object-cover rounded-3xl"
+              className="w-full max-w-[700px] h-auto md:h-[800px] object-fill rounded-3xl"
             />
           </ScrollReveal>
         </Section>
-        <Section className="w-full lg:w-2/3 px-4 sm:px-8">
+        <Section className="w-full lg:w-2/3 px-4 sm:px-8 !pt-10 lg:!pt-32">
           <div className="pb-5">
             <ScrollReveal animation="fade-up">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium mb-1 w-full text-center lg:text-left">
