@@ -9,7 +9,7 @@ export default function ServicesPage() {
       <div className="bg-green-100/15">
         <Section className="!bg-transparent text-center !pt-28 md:!pt-32">
           {/* Page Image Banner */}
-          <div className="flex items-center justify-center py-5">
+          <div className="text-center mb-10 mt-10">
             <ScrollReveal animation="scale-in">
               <Image
                 src="/images/services-hero.jpg"
@@ -18,7 +18,7 @@ export default function ServicesPage() {
                 height={600}
                 quality={70}
                 priority={true}
-                className="w-full max-w-[1200px] h-[300px] md:h-[500px] object-cover rounded-3xl"
+                className="rounded-3xl mb-8 w-full h-[300px] md:h-[500px] object-cover"
               />
             </ScrollReveal>
           </div>

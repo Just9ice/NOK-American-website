@@ -8,7 +8,7 @@ export default function FinancingPage() {
       <div className="bg-green-100/15">
         <Section className="!bg-transparent !pt-28 md:!pt-32 !pb-10 text-center">
           {/* Page Image Banner */}
-          <div className="flex items-center justify-center py-5">
+          <div className="text-center mb-10 mt-10">
             <ScrollReveal animation="scale-in">
               <Image
                 src="/images/financing.jpg"
@@ -17,7 +17,7 @@ export default function FinancingPage() {
                 height={600}
                 quality={70}
                 priority={true}
-                className="w-full max-w-[1200px] h-[300px] md:h-[500px] object-cover rounded-3xl"
+                className="rounded-3xl mb-8 w-full h-[300px] md:h-[500px] object-cover"
               />
             </ScrollReveal>
           </div>
