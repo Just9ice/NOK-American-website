@@ -6,7 +6,7 @@ export default function ContactPage() {
   return (
     <>
       <div className="flex flex-col lg:flex-row justify-center items-center lg:items-start w-full">
-        <Section className="bg-[#17365d] w-full lg:w-fit flex justify-center px-4 sm:px-8 !pt-14 md:!pt-32">
+        <Section className="bg-[#17365d] w-full lg:w-fit flex justify-center px-4 sm:px-8 !pt-28 md:!pt-28">
           <ScrollReveal animation="slide-in-left" className="w-full">
             <Image
               src="/images/contact.jpg"
