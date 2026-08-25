@@ -1,6 +1,7 @@
 import Section from "@/components/Section";
 import Image from "next/image";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { BatteryShowcase } from "@/components/BatteryShowcase";
 
 export default function ProductPage() {
   return (
@@ -84,6 +85,8 @@ export default function ProductPage() {
           </div>
         </Section>
       </div>
+
+      <BatteryShowcase />
     </>
   );
 }

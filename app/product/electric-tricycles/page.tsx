@@ -1,6 +1,7 @@
 import Section from "@/components/Section";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import Image from "next/image";
+import { KekeShowcase } from "@/components/KekeShowcase";
 
 export default function ProductPage() {
   return (
@@ -95,6 +96,8 @@ export default function ProductPage() {
           </div>
         </Section>
       </div>
+
+      <KekeShowcase />
     </>
   );
 }
