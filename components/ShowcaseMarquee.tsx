@@ -30,7 +30,7 @@ export function ShowcaseMarquee() {
         <div className="absolute right-0 top-0 z-20 h-full w-16 sm:w-32 bg-gradient-to-l from-zinc-500 to-transparent pointer-events-none"></div>
 
         {/* The scrolling track */}
-        <div className="flex animate-marquee group-hover:[animation-play-state:paused] w-max">
+        <div className="flex animate-marquee md:group-hover:[animation-play-state:paused] w-max">
           {/* We render the images 4 times for a seamless continuous loop even on ultrawide screens */}
           {[...allImages, ...allImages, ...allImages, ...allImages].map(
             (item, i) => (

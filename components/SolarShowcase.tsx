@@ -141,8 +141,14 @@ export function SolarShowcase() {
         {/* Carousel Container */}
         <div
           className="relative z-10 w-full group"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
+          onPointerEnter={(e) => {
+            if (e.pointerType === "mouse") setIsPaused(true);
+          }}
+          onPointerLeave={(e) => {
+            if (e.pointerType === "mouse") setIsPaused(false);
+          }}
+          onTouchStart={() => setIsPaused(true)}
+          onTouchEnd={() => setIsPaused(false)}
         >
           {/* Left Gradient Mask */}
           <div className="absolute left-0 top-0 z-20 h-full w-12 sm:w-32 bg-gradient-to-r from-zinc-950 to-transparent pointer-events-none"></div>
