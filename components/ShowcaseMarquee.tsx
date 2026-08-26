@@ -15,8 +15,8 @@ const allImages = [
 
 export function ShowcaseMarquee() {
   return (
-    <div className="w-full overflow-hidden bg-zinc-200/30 backdrop-blur-xl py-10  relative flex flex-col justify-center">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/5 via-zinc-950 to-zinc-950 opacity-50 z-0"></div>
+    <div className="w-full overflow-hidden bg-zinc-200  py-10  relative flex flex-col justify-center">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] backdrop-blur-xl from-white/5 via-zinc-950 to-zinc-950 opacity-50 z-0"></div>
 
       <div className="text-center mb-6 relative z-10">
         <span className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-700">

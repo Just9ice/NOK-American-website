@@ -168,35 +168,6 @@ export function BatteryShowcase() {
           {/* Left Gradient Mask */}
           <div className="absolute left-0 top-0 z-20 h-full w-12 sm:w-32 bg-gradient-to-r from-zinc-950 to-transparent pointer-events-none"></div>
 
-          {/* Navigation Controls */}
-          <button
-            onClick={scrollLeft}
-            className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md transition-all hover:bg-white/20 hover:scale-110 opacity-0 group-hover:opacity-100 focus:opacity-100"
-            aria-label="Scroll left"
-          >
-            <ChevronLeft className="h-6 w-6" />
-          </button>
-
-          <button
-            onClick={scrollRight}
-            className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md transition-all hover:bg-white/20 hover:scale-110 opacity-0 group-hover:opacity-100 focus:opacity-100"
-            aria-label="Scroll right"
-          >
-            <ChevronRight className="h-6 w-6" />
-          </button>
-
-          <button
-            onClick={() => setIsPaused(!isPaused)}
-            className="absolute right-4 sm:right-8 top-4 z-30 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md transition-all hover:bg-white/20 opacity-0 group-hover:opacity-100 focus:opacity-100"
-            aria-label={isPaused ? "Play carousel" : "Pause carousel"}
-          >
-            {isPaused ? (
-              <Play className="h-5 w-5 ml-1" />
-            ) : (
-              <Pause className="h-5 w-5" />
-            )}
-          </button>
-
           {/* Scrolling Track */}
           <div
             ref={scrollContainerRef}
@@ -262,6 +233,35 @@ export function BatteryShowcase() {
 
           {/* Right Gradient Mask */}
           <div className="absolute right-0 top-0 z-20 h-full w-12 sm:w-32 bg-gradient-to-l from-zinc-950 to-transparent pointer-events-none"></div>
+        </div>
+
+        {/* Navigation Controls (Below the media) */}
+        <div className="relative z-20 flex justify-center items-center mt-2 sm:mt-6">
+          <div className="flex items-center rounded-full bg-white/5 p-2 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.36)]">
+            <button 
+              onClick={scrollLeft}
+              className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-transparent text-white transition-all hover:bg-white/10 active:scale-95"
+              aria-label="Scroll left"
+            >
+              <ChevronLeft className="h-6 w-6 sm:h-7 sm:w-7" />
+            </button>
+            
+            <button 
+              onClick={() => setIsPaused(!isPaused)}
+              className="mx-2 flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-green-600/80 text-white backdrop-blur-md transition-all hover:bg-green-500 active:scale-95 shadow-lg shadow-green-900/50 border border-green-400/20"
+              aria-label={isPaused ? "Play carousel" : "Pause carousel"}
+            >
+              {isPaused ? <Play className="h-6 w-6 sm:h-7 sm:w-7 ml-1" /> : <Pause className="h-6 w-6 sm:h-7 sm:w-7" />}
+            </button>
+
+            <button 
+              onClick={scrollRight}
+              className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-transparent text-white transition-all hover:bg-white/10 active:scale-95"
+              aria-label="Scroll right"
+            >
+              <ChevronRight className="h-6 w-6 sm:h-7 sm:w-7" />
+            </button>
+          </div>
         </div>
 
         <style
