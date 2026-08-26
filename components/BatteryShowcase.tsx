@@ -6,7 +6,7 @@ import { ScrollReveal } from "./ScrollReveal";
 import { ChevronLeft, ChevronRight, Play, Pause, X } from "lucide-react";
 
 // The media items to display in the carousel
-const mediaItems = [
+export const batteryMediaItems = [
   // {
   //   type: "image",
   //   src: "/images/battery.jpeg",
@@ -86,7 +86,7 @@ const mediaItems = [
   },
 ];
 
-type MediaItem = (typeof mediaItems)[0];
+type MediaItem = (typeof batteryMediaItems)[0];
 
 export function BatteryShowcase() {
   const [isPaused, setIsPaused] = useState(false);
@@ -204,8 +204,12 @@ export function BatteryShowcase() {
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {/* Duplicate the items extensively so the carousel looks full */}
-            {[...mediaItems, ...mediaItems, ...mediaItems, ...mediaItems].map(
-              (item, index) => (
+            {[
+              ...batteryMediaItems,
+              ...batteryMediaItems,
+              ...batteryMediaItems,
+              ...batteryMediaItems,
+            ].map((item, index) => (
                 <div
                   key={`${item.src}-${index}`}
                   onClick={() => setExpandedItem(item)}

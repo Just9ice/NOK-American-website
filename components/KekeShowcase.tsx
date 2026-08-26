@@ -6,7 +6,7 @@ import { ScrollReveal } from "./ScrollReveal";
 import { ChevronLeft, ChevronRight, Play, Pause, X } from "lucide-react";
 
 // The media items to display in the carousel
-const mediaItems = [
+export const kekeMediaItems = [
   {
     type: "image",
     src: "/projects/ev-image-1.jpg",
@@ -107,7 +107,7 @@ const mediaItems = [
   },
 ];
 
-type MediaItem = (typeof mediaItems)[0];
+type MediaItem = (typeof kekeMediaItems)[0];
 
 export function KekeShowcase() {
   const [isPaused, setIsPaused] = useState(false);
@@ -229,7 +229,7 @@ export function KekeShowcase() {
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {/* We duplicate the items to create a seamless infinite loop effect visually */}
-            {[...mediaItems, ...mediaItems].map((item, index) => (
+            {[...kekeMediaItems, ...kekeMediaItems].map((item, index) => (
               <div
                 key={`${item.src}-${index}`}
                 onClick={() => setExpandedItem(item)}

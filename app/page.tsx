@@ -9,6 +9,7 @@ import {
   Leaf,
 } from "lucide-react";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { ShowcaseMarquee } from "@/components/ShowcaseMarquee";
 
 export default function Home() {
   return (
@@ -253,6 +254,8 @@ export default function Home() {
           </div>
         </ScrollReveal>
       </section>
+
+      <ShowcaseMarquee />
     </>
   );
 }

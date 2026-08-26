@@ -6,7 +6,7 @@ import { ScrollReveal } from "./ScrollReveal";
 import { ChevronLeft, ChevronRight, Play, Pause, X } from "lucide-react";
 
 // The media items to display in the carousel
-const mediaItems = [
+export const solarMediaItems = [
   {
     type: "image",
     src: "/images/solar-farming.jpg",
@@ -65,7 +65,7 @@ const mediaItems = [
   },
 ];
 
-type MediaItem = (typeof mediaItems)[0];
+type MediaItem = (typeof solarMediaItems)[0];
 
 export function SolarShowcase() {
   const [isPaused, setIsPaused] = useState(false);
@@ -183,7 +183,7 @@ export function SolarShowcase() {
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {/* We duplicate the items to create a seamless infinite loop effect visually */}
-            {[...mediaItems, ...mediaItems, ...mediaItems].map(
+            {[...solarMediaItems, ...solarMediaItems, ...solarMediaItems].map(
               (item, index) => (
                 <div
                   key={`${item.src}-${index}`}
