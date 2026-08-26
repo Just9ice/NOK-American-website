@@ -51,6 +51,13 @@ export const kekeMediaItems = [
   },
   {
     type: "image",
+    src: "/projects/boxed-keke.jpeg",
+    title: "Boxed Cargo Keke",
+    category: "Cargo",
+    alt: "Boxed Cargo Keke",
+  },
+  {
+    type: "image",
     src: "/projects/ev-cargo.jpeg",
     title: "EV Cargo Model",
     category: "Cargo",
@@ -263,23 +270,27 @@ export function KekeShowcase() {
         {/* Navigation Controls (Below the media) */}
         <div className="relative z-20 flex justify-center items-center mt-2 sm:mt-6">
           <div className="flex items-center rounded-full bg-white/5 p-2 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.36)]">
-            <button 
+            <button
               onClick={scrollLeft}
               className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-transparent text-white transition-all hover:bg-white/10 active:scale-95"
               aria-label="Scroll left"
             >
               <ChevronLeft className="h-6 w-6 sm:h-7 sm:w-7" />
             </button>
-            
-            <button 
+
+            <button
               onClick={() => setIsPaused(!isPaused)}
               className="mx-2 flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-green-600/80 text-white backdrop-blur-md transition-all hover:bg-green-500 active:scale-95 shadow-lg shadow-green-900/50 border border-green-400/20"
               aria-label={isPaused ? "Play carousel" : "Pause carousel"}
             >
-              {isPaused ? <Play className="h-6 w-6 sm:h-7 sm:w-7 ml-1" /> : <Pause className="h-6 w-6 sm:h-7 sm:w-7" />}
+              {isPaused ? (
+                <Play className="h-6 w-6 sm:h-7 sm:w-7 ml-1" />
+              ) : (
+                <Pause className="h-6 w-6 sm:h-7 sm:w-7" />
+              )}
             </button>
 
-            <button 
+            <button
               onClick={scrollRight}
               className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-transparent text-white transition-all hover:bg-white/10 active:scale-95"
               aria-label="Scroll right"
