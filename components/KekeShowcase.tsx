@@ -98,9 +98,16 @@ const mediaItems = [
     category: "Assembly",
     alt: "Building process of Keke",
   },
+  {
+    type: "video",
+    src: "/projects/keke-loaded.mp4",
+    title: "Keke Loaded",
+    category: "Showcase",
+    alt: "Keke loaded with cargo and workers",
+  },
 ];
 
-type MediaItem = typeof mediaItems[0];
+type MediaItem = (typeof mediaItems)[0];
 
 export function KekeShowcase() {
   const [isPaused, setIsPaused] = useState(false);
@@ -114,15 +121,19 @@ export function KekeShowcase() {
 
     const interval = setInterval(() => {
       if (scrollContainerRef.current) {
-        const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
-        
+        const { scrollLeft, scrollWidth, clientWidth } =
+          scrollContainerRef.current;
+
         // If we are at the end, smoothly go back to the start
         if (scrollLeft + clientWidth >= scrollWidth - 10) {
-          scrollContainerRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+          scrollContainerRef.current.scrollTo({ left: 0, behavior: "smooth" });
         } else {
           // Scroll forward by roughly one card width
           // We use Math.min to ensure we don't jump too far on ultrawide screens
-          scrollContainerRef.current.scrollBy({ left: Math.min(500, clientWidth * 0.7), behavior: 'smooth' });
+          scrollContainerRef.current.scrollBy({
+            left: Math.min(500, clientWidth * 0.7),
+            behavior: "smooth",
+          });
         }
       }
     }, 3500); // 3.5 seconds per slide
@@ -133,14 +144,20 @@ export function KekeShowcase() {
   const scrollLeft = () => {
     if (scrollContainerRef.current) {
       const containerWidth = scrollContainerRef.current.clientWidth;
-      scrollContainerRef.current.scrollBy({ left: -Math.min(500, containerWidth * 0.7), behavior: 'smooth' });
+      scrollContainerRef.current.scrollBy({
+        left: -Math.min(500, containerWidth * 0.7),
+        behavior: "smooth",
+      });
     }
   };
 
   const scrollRight = () => {
     if (scrollContainerRef.current) {
       const containerWidth = scrollContainerRef.current.clientWidth;
-      scrollContainerRef.current.scrollBy({ left: Math.min(500, containerWidth * 0.7), behavior: 'smooth' });
+      scrollContainerRef.current.scrollBy({
+        left: Math.min(500, containerWidth * 0.7),
+        behavior: "smooth",
+      });
     }
   };
 
@@ -149,7 +166,7 @@ export function KekeShowcase() {
       <section className="relative w-full overflow-hidden bg-zinc-950 py-24 sm:py-32">
         {/* Background gradients */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#17365d]/20 via-zinc-950 to-zinc-950"></div>
-        
+
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-12">
           <ScrollReveal animation="fade-up">
             <div className="text-center">
@@ -160,31 +177,32 @@ export function KekeShowcase() {
                 The Future of Mobility
               </h2>
               <p className="mx-auto max-w-2xl text-lg text-zinc-400">
-                Discover our range of locally assembled passenger and cargo electric tricycles designed for African roads.
+                Discover our range of locally assembled passenger and cargo
+                electric tricycles designed for African roads.
               </p>
             </div>
           </ScrollReveal>
         </div>
 
         {/* Carousel Container */}
-        <div 
+        <div
           className="relative z-10 w-full group"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
           {/* Left Gradient Mask */}
           <div className="absolute left-0 top-0 z-20 h-full w-12 sm:w-32 bg-gradient-to-r from-zinc-950 to-transparent pointer-events-none"></div>
-          
+
           {/* Navigation Controls */}
-          <button 
+          <button
             onClick={scrollLeft}
             className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md transition-all hover:bg-white/20 hover:scale-110 opacity-0 group-hover:opacity-100 focus:opacity-100"
             aria-label="Scroll left"
           >
             <ChevronLeft className="h-6 w-6" />
           </button>
-          
-          <button 
+
+          <button
             onClick={scrollRight}
             className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md transition-all hover:bg-white/20 hover:scale-110 opacity-0 group-hover:opacity-100 focus:opacity-100"
             aria-label="Scroll right"
@@ -192,23 +210,27 @@ export function KekeShowcase() {
             <ChevronRight className="h-6 w-6" />
           </button>
 
-          <button 
+          <button
             onClick={() => setIsPaused(!isPaused)}
             className="absolute right-4 sm:right-8 top-4 z-30 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md transition-all hover:bg-white/20 opacity-0 group-hover:opacity-100 focus:opacity-100"
             aria-label={isPaused ? "Play carousel" : "Pause carousel"}
           >
-            {isPaused ? <Play className="h-5 w-5 ml-1" /> : <Pause className="h-5 w-5" />}
+            {isPaused ? (
+              <Play className="h-5 w-5 ml-1" />
+            ) : (
+              <Pause className="h-5 w-5" />
+            )}
           </button>
 
           {/* Scrolling Track */}
-          <div 
+          <div
             ref={scrollContainerRef}
             className="flex gap-6 overflow-x-auto hide-scrollbar px-12 sm:px-32 py-8 snap-x snap-mandatory"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {/* We duplicate the items to create a seamless infinite loop effect visually */}
             {[...mediaItems, ...mediaItems].map((item, index) => (
-              <div 
+              <div
                 key={`${item.src}-${index}`}
                 onClick={() => setExpandedItem(item)}
                 className="cursor-pointer relative flex-none w-[280px] sm:w-[400px] md:w-[500px] lg:w-[600px] aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl transition-all duration-500 hover:scale-[1.02] snap-center group/card"
@@ -231,10 +253,10 @@ export function KekeShowcase() {
                     className="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110"
                   />
                 )}
-                
+
                 {/* Overlay Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover/card:opacity-90 transition-opacity duration-300"></div>
-                
+
                 {/* Glassmorphism Caption */}
                 <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 translate-y-4 group-hover/card:translate-y-0 transition-transform duration-300">
                   <div className="rounded-2xl bg-white/10 p-4 backdrop-blur-md border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.36)]">
@@ -260,22 +282,26 @@ export function KekeShowcase() {
           {/* Right Gradient Mask */}
           <div className="absolute right-0 top-0 z-20 h-full w-12 sm:w-32 bg-gradient-to-l from-zinc-950 to-transparent pointer-events-none"></div>
         </div>
-        
-        <style dangerouslySetInnerHTML={{__html: `
+
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
           .hide-scrollbar::-webkit-scrollbar {
             display: none;
           }
-        `}} />
+        `,
+          }}
+        />
       </section>
 
       {/* Fullscreen Expansion Modal */}
       {expandedItem && (
-        <div 
+        <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 sm:p-8 backdrop-blur-lg animate-in fade-in duration-300"
           onClick={() => setExpandedItem(null)} // Close when clicking the backdrop
         >
           {/* Close button */}
-          <button 
+          <button
             onClick={(e) => {
               e.stopPropagation();
               setExpandedItem(null);
@@ -285,12 +311,12 @@ export function KekeShowcase() {
           >
             <X className="h-8 w-8" />
           </button>
-          
-          <div 
+
+          <div
             className="relative w-full max-w-6xl aspect-[4/3] sm:aspect-video rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/20 animate-in zoom-in-95 duration-300"
             onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the media itself
           >
-            {expandedItem.type === 'image' ? (
+            {expandedItem.type === "image" ? (
               <Image
                 src={expandedItem.src}
                 alt={expandedItem.alt}
@@ -307,7 +333,7 @@ export function KekeShowcase() {
                 className="w-full h-full object-contain"
               />
             )}
-            
+
             {/* Expanded Caption */}
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6 sm:p-8">
               <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">
