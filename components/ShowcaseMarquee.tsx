@@ -26,8 +26,8 @@ export function ShowcaseMarquee() {
 
       <div className="relative z-10 w-full flex overflow-hidden group">
         {/* Left and right gradient masks for a premium fade effect */}
-        <div className="absolute left-0 top-0 z-20 h-full w-16 sm:w-32 bg-gradient-to-r from-zinc-500 to-transparent pointer-events-none"></div>
-        <div className="absolute right-0 top-0 z-20 h-full w-16 sm:w-32 bg-gradient-to-l from-zinc-500 to-transparent pointer-events-none"></div>
+        <div className="absolute left-0 top-0 z-20 h-full w-16 sm:w-32 bg-gradient-to-r from-zinc-950 to-transparent pointer-events-none"></div>
+        <div className="absolute right-0 top-0 z-20 h-full w-16 sm:w-32 bg-gradient-to-l from-zinc-950 to-transparent pointer-events-none"></div>
 
         {/* The scrolling track */}
         <div className="flex animate-marquee md:group-hover:[animation-play-state:paused] w-max">
