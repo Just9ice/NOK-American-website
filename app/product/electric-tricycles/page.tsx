@@ -7,7 +7,7 @@ import { kekeMediaItems } from "@/data/keke-media";
 export default function ProductPage() {
   // Pull only the first 6 items for the hero (mix of images + videos for variety)
   const heroItems = kekeMediaItems
-    .filter((_, i) => i < 6)
+    .filter((_, i) => i < 20)
     .map((item) => ({
       type: item.type as "image" | "video",
       src: item.src,
