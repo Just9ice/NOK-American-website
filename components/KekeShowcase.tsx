@@ -258,3 +258,5 @@ export function KekeShowcase() {
     </>
   );
 }
+export { kekeMediaItems };
+

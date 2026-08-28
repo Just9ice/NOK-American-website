@@ -11,27 +11,27 @@ const softwareHeroItems = [
     title: "Custom Software",
     category: "Engineering",
   },
-  {
-    type: "image" as const,
-    src: "/images/eng.jpg",
-    alt: "Application Integration",
-    title: "App Integration",
-    category: "Cloud & Platform",
-  },
-  {
-    type: "image" as const,
-    src: "/images/coding.jpg",
-    alt: "System Monitoring",
-    title: "Observability",
-    category: "DevOps",
-  },
-  {
-    type: "image" as const,
-    src: "/images/soft.jpg",
-    alt: "Payment Systems",
-    title: "Payment Integrations",
-    category: "FinTech",
-  },
+  // {
+  //   type: "image" as const,
+  //   src: "/images/eng.jpg",
+  //   alt: "Application Integration",
+  //   title: "App Integration",
+  //   category: "Cloud & Platform",
+  // },
+  // {
+  //   type: "image" as const,
+  //   src: "/images/coding.jpg",
+  //   alt: "System Monitoring",
+  //   title: "Observability",
+  //   category: "DevOps",
+  // },
+  // {
+  //   type: "image" as const,
+  //   src: "/images/soft.jpg",
+  //   alt: "Payment Systems",
+  //   title: "Payment Integrations",
+  //   category: "FinTech",
+  // },
 ];
 
 export default function SoftwareSolutionsPage() {
