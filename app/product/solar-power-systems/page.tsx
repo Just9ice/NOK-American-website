@@ -1,24 +1,25 @@
 import Section from "@/components/Section";
 import { ScrollReveal } from "@/components/ScrollReveal";
-import Image from "next/image";
+import { HeroCarousel } from "@/components/HeroCarousel";
 import { SolarShowcase } from "@/components/SolarShowcase";
+import { solarMediaItems } from "@/data/solar-media";
 
 export default function ProductPage() {
+  const heroItems = solarMediaItems.map((item) => ({
+    type: item.type as "image" | "video",
+    src: item.src,
+    alt: item.alt,
+    title: item.title,
+    category: item.category,
+  }));
+
   return (
     <>
       <div className="bg-green-100/10">
         <Section className="!pt-28 md:!pt-32 !pb-5 text-center !bg-transparent">
-          <div className="flex items-center justify-center py-5">
-            <ScrollReveal animation="scale-in">
-              <Image
-                src="/images/solar.png"
-                alt="NOK Inc Banner"
-                width={1200}
-                height={600}
-                quality={70}
-                priority={true}
-                className="w-full max-w-[1200px] h-[300px] md:h-[500px] object-cover rounded-3xl"
-              />
+          <div className="flex items-center justify-center py-5 px-4 md:px-16">
+            <ScrollReveal animation="scale-in" className="w-full">
+              <HeroCarousel items={heroItems} />
             </ScrollReveal>
           </div>
           <ScrollReveal animation="fade-up" delay={0.2}>
@@ -69,7 +70,7 @@ export default function ProductPage() {
                 <li>• Commercial Solar Power Systems</li>
                 <li>• Industrial Solar Power Systems</li>
                 <li>• Solar Hybrid Systems</li>
-                <li>• Solar Installation & Maintenance Services</li>
+                <li>• Solar Installation &amp; Maintenance Services</li>
               </ul>
             </ScrollReveal>
             <ScrollReveal animation="fade-up" delay={0.2}>
@@ -90,4 +91,3 @@ export default function ProductPage() {
     </>
   );
 }
-

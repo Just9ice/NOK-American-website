@@ -1,36 +1,73 @@
 import Section from "@/components/Section";
 import Link from "next/link";
-import Image from "next/image";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { HeroCarousel } from "@/components/HeroCarousel";
+
+const softwareHeroItems = [
+  {
+    type: "image" as const,
+    src: "/images/apps.png",
+    alt: "Software Applications",
+    title: "Custom Software",
+    category: "Engineering",
+  },
+  {
+    type: "image" as const,
+    src: "/images/appMerge-1024x709.png",
+    alt: "Application Integration",
+    title: "App Integration",
+    category: "Cloud & Platform",
+  },
+  {
+    type: "image" as const,
+    src: "/images/monitoring.jpg",
+    alt: "System Monitoring",
+    title: "Observability",
+    category: "DevOps",
+  },
+  {
+    type: "image" as const,
+    src: "/images/payment.jpg",
+    alt: "Payment Systems",
+    title: "Payment Integrations",
+    category: "FinTech",
+  },
+];
 
 export default function SoftwareSolutionsPage() {
   return (
     <>
-      <Section
-        className="!pt-28 md:!pt-32 relative overflow-hidden text-white flex flex-col items-center justify-center text-center pt-10 pb-15"
-        bgWhite={false}
-      >
-        <Image
-          src="/images/apps.png"
-          alt="Application Merging"
-          fill
-          quality={100}
-          priority
-          sizes="100vw"
-          style={{
-            objectFit: "cover",
-          }}
-        />
-
-        <div className="relative z-10 max-w-3xl mx-auto text-center bg-black/40 backdrop-blur-xl border border-white/20 shadow-xl shadow-green-100 rounded-lg p-10 mt-15">
-          <ScrollReveal animation="fade-up">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6">
-              Powering Industry Through Intelligent Software Engineering, Data,
-              and AI Solutions
+      <div className="bg-green-100/10">
+        {/* ── Hero Carousel ─────────────────────────────────── */}
+        <Section className="!pt-28 md:!pt-32 !pb-5 text-center !bg-transparent">
+          <div className="flex items-center justify-center py-5 px-4 md:px-16">
+            <ScrollReveal animation="scale-in" className="w-full">
+              <HeroCarousel items={softwareHeroItems} />
+            </ScrollReveal>
+          </div>
+          <ScrollReveal animation="fade-up" delay={0.2}>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium mb-6">
+              Software Solutions
             </h1>
           </ScrollReveal>
-          <ScrollReveal animation="fade-up" delay={0.2}>
-            <p className="mt-4 text-lg sm:text-xl text-gray-100">
+          <ScrollReveal animation="fade-up" delay={0.4}>
+            <p className="mt-4 max-w-2xl mx-auto text-lg sm:text-xl text-gray-500">
+              Intelligent software engineering, data, and AI solutions that
+              power industry at scale.
+            </p>
+          </ScrollReveal>
+        </Section>
+
+        {/* ── Intro Copy ────────────────────────────────────── */}
+        <Section className="!bg-transparent !py-2">
+          <ScrollReveal animation="slide-in-left" delay={0.2}>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium mb-6 text-center px-4 md:px-20">
+              Powering Industry Through Intelligent Software Engineering, Data,
+              and AI Solutions
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal animation="slide-in-left" delay={0.2}>
+            <p className="max-w-5xl mx-auto text-lg sm:text-xl text-gray-500 px-5 pb-3 font-light">
               NOK Inc designs, builds, modernizes, and operates production
               software across cloud, data, AI, web, mobile, and distributed
               systems. We work from architecture through implementation,
@@ -38,36 +75,54 @@ export default function SoftwareSolutionsPage() {
               engineering partner accountable for delivery.
             </p>
           </ScrollReveal>
-        </div>
+          <ScrollReveal animation="slide-in-left" delay={0.2}>
+            <p className="max-w-5xl mx-auto text-lg sm:text-xl text-gray-500 px-5 font-light">
+              We design and deliver software for the cloud, data, AI, and
+              platforms. From mobile and web apps to enterprise systems, APIs,
+              data pipelines, and AI-driven intelligence.
+            </p>
+          </ScrollReveal>
+        </Section>
 
-        {/* Flickering Scroll Indicator */}
-        <div className="hidden md:block relative z-20 mt-16 animate-bounce">
-          <div className="animate-pulse text-green-500/80 flex flex-col items-center">
-            <span className="text-xs uppercase tracking-[0.2em] mb-2 font-medium">
-              Scroll
-            </span>
-            <svg
-              className="w-8 h-8"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
+        {/* ── Service Cards ─────────────────────────────────── */}
+        <Section className="!bg-transparent !py-5">
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 p-5">
+            <ScrollReveal animation="fade-up">
+              <h3 className="text-2xl sm:text-3xl font-bold text-[#17365d] mb-4">
+                Our Software Services
+              </h3>
+              <ul className="space-y-2 text-lg sm:text-xl text-gray-600">
+                <li>• Application Engineering</li>
+                <li>• Cloud &amp; Platform Engineering</li>
+                <li>• Data &amp; AI Engineering</li>
+                <li>• DevOps &amp; Security</li>
+                <li>• Systems Integration</li>
+                <li>• End-to-End Delivery</li>
+              </ul>
+            </ScrollReveal>
+            <ScrollReveal animation="fade-up" delay={0.2}>
+              <h3 className="text-2xl sm:text-3xl font-bold text-[#17365d] mb-4">
+                Key Capabilities
+              </h3>
+              <ul className="space-y-2 text-lg sm:text-xl text-gray-600">
+                <li>• Enterprise &amp; Mobile Applications</li>
+                <li>• Multi-Cloud &amp; Kubernetes</li>
+                <li>• Generative AI &amp; AI Agents</li>
+                <li>• CI/CD &amp; Observability</li>
+                <li>• Payment &amp; API Integrations</li>
+                <li>• Discover → Architect → Build → Support</li>
+              </ul>
+            </ScrollReveal>
           </div>
-        </div>
-      </Section>
+        </Section>
+      </div>
 
+      {/* ── Detailed Service Breakdown ─────────────────────── */}
       <Section className="!pb-8 sm:!pb-12">
         <ScrollReveal animation="fade-up">
-          <h1 className="text-5xl font-bold text-center text-[#17365d] mb-5">
-            Software Engineering, Data & AI Solutions
-          </h1>
+          <h2 className="text-4xl sm:text-5xl font-bold text-center text-[#17365d] mb-5">
+            Software Engineering, Data &amp; AI Solutions
+          </h2>
         </ScrollReveal>
         <ScrollReveal animation="fade-up" delay={0.2}>
           <p className="text-gray-600 text-lg text-center mb-12 max-w-3xl mx-auto">
@@ -84,18 +139,18 @@ export default function SoftwareSolutionsPage() {
             <ul className="space-y-2 text-gray-600">
               <li>• Enterprise Applications</li>
               <li>• Mobile Apps</li>
-              <li>• APIs & Integrations</li>
+              <li>• APIs &amp; Integrations</li>
               <li>• Microservices</li>
               <li>• Progressive Web Apps</li>
             </ul>
           </ScrollReveal>
           <ScrollReveal animation="fade-up" delay={0.2} className="bg-white p-8 rounded-xl shadow border border-gray-100">
             <h3 className="text-xl font-bold text-[#17365d] mb-4">
-              Cloud & Platform Engineering
+              Cloud &amp; Platform Engineering
             </h3>
             <ul className="space-y-2 text-gray-600">
               <li>• Multi-Cloud Solutions</li>
-              <li>• Containers & Kubernetes</li>
+              <li>• Containers &amp; Kubernetes</li>
               <li>• Infrastructure as Code</li>
               <li>• Serverless Computing</li>
               <li>• Cloud Modernization</li>
@@ -103,24 +158,24 @@ export default function SoftwareSolutionsPage() {
           </ScrollReveal>
           <ScrollReveal animation="fade-up" delay={0.3} className="bg-white p-8 rounded-xl shadow border border-gray-100">
             <h3 className="text-xl font-bold text-[#17365d] mb-4">
-              Data & AI Engineering
+              Data &amp; AI Engineering
             </h3>
             <ul className="space-y-2 text-gray-600">
               <li>• Data Engineering</li>
               <li>• Analytics Platforms</li>
               <li>• Generative AI</li>
-              <li>• AI Agents & Automation</li>
+              <li>• AI Agents &amp; Automation</li>
               <li>• Intelligent Search</li>
             </ul>
           </ScrollReveal>
           <ScrollReveal animation="fade-up" delay={0.4} className="bg-white p-8 rounded-xl shadow border border-gray-100">
             <h3 className="text-xl font-bold text-[#17365d] mb-4">
-              DevOps & Security
+              DevOps &amp; Security
             </h3>
             <ul className="space-y-2 text-gray-600">
               <li>• CI/CD Automation</li>
               <li>• Cloud Security</li>
-              <li>• Monitoring & Observability</li>
+              <li>• Monitoring &amp; Observability</li>
               <li>• Performance Optimization</li>
               <li>• Quality Assurance</li>
             </ul>
@@ -150,17 +205,17 @@ export default function SoftwareSolutionsPage() {
         </div>
       </Section>
 
+      {/* ── App Downloads ─────────────────────────────────── */}
       <Section className="bg-gray-50 !pt-8 sm:!pt-12">
-        {/* Proven Product section */}
         <div className="flex-1 p-8 bg-white rounded-xl">
           <ScrollReveal animation="fade-up">
-            <h3 className="text-2xl sm:text-3xl font-bold text-center text-[#17365d] mb-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-center text-[#17365d] mb-4">
               Software That Powers Real Work
-            </h3>
+            </h2>
           </ScrollReveal>
           <ScrollReveal animation="fade-up" delay={0.2}>
             <p className="text-gray-600 text-lg text-center mb-10">
-              We at NOK in take pride in designing and developing software for our
+              We at NOK Inc take pride in designing and developing software for our
               clients that makes daily work simpler, faster, and more transparent.{" "}
               <br />
               Our apps are designed to run on any device and can be accessed from
@@ -219,4 +274,3 @@ export default function SoftwareSolutionsPage() {
     </>
   );
 }
-

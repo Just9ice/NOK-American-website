@@ -2,9 +2,9 @@
 
 import React from "react";
 import Image from "next/image";
-import { kekeMediaItems } from "./KekeShowcase";
-import { batteryMediaItems } from "./BatteryShowcase";
-import { solarMediaItems } from "./SolarShowcase";
+import { kekeMediaItems } from "@/data/keke-media";
+import { batteryMediaItems } from "@/data/battery-media";
+import { solarMediaItems } from "@/data/solar-media";
 
 // Combine and filter to get only images (dynamically fetched from the showcases)
 const allImages = [
