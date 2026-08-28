@@ -13,21 +13,21 @@ const softwareHeroItems = [
   },
   {
     type: "image" as const,
-    src: "/images/appMerge-1024x709.png",
+    src: "/images/eng.jpg",
     alt: "Application Integration",
     title: "App Integration",
     category: "Cloud & Platform",
   },
   {
     type: "image" as const,
-    src: "/images/monitoring.jpg",
+    src: "/images/coding.jpg",
     alt: "System Monitoring",
     title: "Observability",
     category: "DevOps",
   },
   {
     type: "image" as const,
-    src: "/images/payment.jpg",
+    src: "/images/soft.jpg",
     alt: "Payment Systems",
     title: "Payment Integrations",
     category: "FinTech",
@@ -126,13 +126,17 @@ export default function SoftwareSolutionsPage() {
         </ScrollReveal>
         <ScrollReveal animation="fade-up" delay={0.2}>
           <p className="text-gray-600 text-lg text-center mb-12 max-w-3xl mx-auto">
-            We design and deliver software for the cloud, data, AI, and platforms.
-            From mobile and web apps to enterprise systems, APIs, data pipelines,
-            and AI-driven intelligence.
+            We design and deliver software for the cloud, data, AI, and
+            platforms. From mobile and web apps to enterprise systems, APIs,
+            data pipelines, and AI-driven intelligence.
           </p>
         </ScrollReveal>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <ScrollReveal animation="fade-up" delay={0.1} className="bg-white p-8 rounded-xl shadow border border-gray-100">
+          <ScrollReveal
+            animation="fade-up"
+            delay={0.1}
+            className="bg-white p-8 rounded-xl shadow border border-gray-100"
+          >
             <h3 className="text-xl font-bold text-[#17365d] mb-4">
               Application Engineering
             </h3>
@@ -144,7 +148,11 @@ export default function SoftwareSolutionsPage() {
               <li>• Progressive Web Apps</li>
             </ul>
           </ScrollReveal>
-          <ScrollReveal animation="fade-up" delay={0.2} className="bg-white p-8 rounded-xl shadow border border-gray-100">
+          <ScrollReveal
+            animation="fade-up"
+            delay={0.2}
+            className="bg-white p-8 rounded-xl shadow border border-gray-100"
+          >
             <h3 className="text-xl font-bold text-[#17365d] mb-4">
               Cloud &amp; Platform Engineering
             </h3>
@@ -156,7 +164,11 @@ export default function SoftwareSolutionsPage() {
               <li>• Cloud Modernization</li>
             </ul>
           </ScrollReveal>
-          <ScrollReveal animation="fade-up" delay={0.3} className="bg-white p-8 rounded-xl shadow border border-gray-100">
+          <ScrollReveal
+            animation="fade-up"
+            delay={0.3}
+            className="bg-white p-8 rounded-xl shadow border border-gray-100"
+          >
             <h3 className="text-xl font-bold text-[#17365d] mb-4">
               Data &amp; AI Engineering
             </h3>
@@ -168,7 +180,11 @@ export default function SoftwareSolutionsPage() {
               <li>• Intelligent Search</li>
             </ul>
           </ScrollReveal>
-          <ScrollReveal animation="fade-up" delay={0.4} className="bg-white p-8 rounded-xl shadow border border-gray-100">
+          <ScrollReveal
+            animation="fade-up"
+            delay={0.4}
+            className="bg-white p-8 rounded-xl shadow border border-gray-100"
+          >
             <h3 className="text-xl font-bold text-[#17365d] mb-4">
               DevOps &amp; Security
             </h3>
@@ -180,7 +196,11 @@ export default function SoftwareSolutionsPage() {
               <li>• Quality Assurance</li>
             </ul>
           </ScrollReveal>
-          <ScrollReveal animation="fade-up" delay={0.5} className="bg-white p-8 rounded-xl shadow border border-gray-100">
+          <ScrollReveal
+            animation="fade-up"
+            delay={0.5}
+            className="bg-white p-8 rounded-xl shadow border border-gray-100"
+          >
             <h3 className="text-xl font-bold text-[#17365d] mb-4">
               Systems Integration
             </h3>
@@ -192,7 +212,11 @@ export default function SoftwareSolutionsPage() {
               <li>• API Management</li>
             </ul>
           </ScrollReveal>
-          <ScrollReveal animation="fade-up" delay={0.6} className="bg-white p-8 rounded-xl shadow border border-gray-100">
+          <ScrollReveal
+            animation="fade-up"
+            delay={0.6}
+            className="bg-white p-8 rounded-xl shadow border border-gray-100"
+          >
             <h3 className="text-xl font-bold text-[#17365d] mb-4">
               End-to-End Delivery
             </h3>
@@ -215,12 +239,12 @@ export default function SoftwareSolutionsPage() {
           </ScrollReveal>
           <ScrollReveal animation="fade-up" delay={0.2}>
             <p className="text-gray-600 text-lg text-center mb-10">
-              We at NOK Inc take pride in designing and developing software for our
-              clients that makes daily work simpler, faster, and more transparent.{" "}
-              <br />
-              Our apps are designed to run on any device and can be accessed from
-              anywhere, below are some of the apps we have developed for download
-              and use.
+              We at NOK Inc take pride in designing and developing software for
+              our clients that makes daily work simpler, faster, and more
+              transparent. <br />
+              Our apps are designed to run on any device and can be accessed
+              from anywhere, below are some of the apps we have developed for
+              download and use.
             </p>
           </ScrollReveal>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
