@@ -56,6 +56,13 @@ export const solarMediaItems = [
     category: "Hardware",
     alt: "Solar panel components",
   },
+  {
+    type: "video",
+    src: "/projects/sol-ar.mp4",
+    title: "Solar Rooftop Installation",
+    category: "Installation",
+    alt: "Solar Rooftop Installation",
+  },
 ] as const;
 
 export type SolarMediaItem = (typeof solarMediaItems)[number];
