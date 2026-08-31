@@ -1,11 +1,11 @@
 // Shared media data for the Solar product pages
 export const solarMediaItems = [
   {
-    type: "image",
-    src: "/images/solar-farming.jpg",
-    title: "Agrivoltaics",
-    category: "Agricultural",
-    alt: "Solar farming",
+    type: "video",
+    src: "/projects/roofing.mp4",
+    title: "Roofing Preparations",
+    category: "Roofing Preparations",
+    alt: "Roofing Preparations",
   },
   {
     type: "video",
