@@ -62,7 +62,7 @@ export function SolarShowcase() {
         {/* Background gradients */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#17365d]/20 via-zinc-950 to-zinc-950"></div>
 
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-12">
+        <div className="relative z-10 mx-auto max-w-7xl 2xl:max-w-[90%] px-4 sm:px-6 lg:px-8 mb-12">
           <ScrollReveal animation="fade-up">
             <div className="text-center">
               <span className="inline-flex items-center rounded-full bg-[#17365d]/30 px-3 py-1 text-sm font-medium text-blue-200 ring-1 ring-inset ring-blue-500/20 mb-4">
@@ -106,7 +106,7 @@ export function SolarShowcase() {
                 <div
                   key={`${item.src}-${index}`}
                   onClick={() => setExpandedItem(item)}
-                  className="cursor-pointer relative flex-none w-[280px] sm:w-[400px] md:w-[500px] lg:w-[600px] aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl transition-all duration-500 hover:scale-[1.02] snap-center group/card"
+                  className="cursor-pointer relative flex-none w-[280px] sm:w-[400px] md:w-[500px] lg:w-[600px] xl:w-[800px] 2xl:w-[1000px] aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl transition-all duration-500 hover:scale-[1.02] snap-center group/card"
                 >
                   {item.type === "image" ? (
                     <Image
@@ -114,7 +114,7 @@ export function SolarShowcase() {
                       alt={item.alt}
                       fill
                       className="object-cover transition-transform duration-700 group-hover/card:scale-110"
-                      sizes="(max-width: 640px) 280px, (max-width: 768px) 400px, (max-width: 1024px) 500px, 600px"
+                      sizes="(max-width: 640px) 280px, (max-width: 768px) 400px, (max-width: 1024px) 500px, (max-width: 1280px) 600px, (max-width: 1536px) 800px, 1000px"
                     />
                   ) : (
                     <video
@@ -216,7 +216,7 @@ export function SolarShowcase() {
           </button>
 
           <div
-            className="relative w-full max-w-6xl aspect-[4/3] sm:aspect-video rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/20 animate-in zoom-in-95 duration-300"
+            className="relative w-[95vw] h-[95vh] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/20 animate-in zoom-in-95 duration-300"
             onClick={(e) => e.stopPropagation()}
           >
             {expandedItem.type === "image" ? (

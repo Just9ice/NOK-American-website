@@ -43,8 +43,12 @@ export default function Home() {
           </ScrollReveal>
           <ScrollReveal animation="fade-up" delay={0.2}>
             <p className="mt-4 max-w-2xl mx-auto text-lg sm:text-lg sm:text-xl text-gray-200 mb-10 px-2 sm:px-0">
-              At NOK Inc, we help homes, businesses, and communities transition
-              to a sustainable future.
+              At{" "}
+              <span className="font-[family-name:var(--font-orbitron)] font-bold tracking-widest text-xl">
+                <span className="text-2xl">n</span>OK inc
+              </span>
+              , we help homes, businesses, and communities transition to a
+              sustainable future.
             </p>
           </ScrollReveal>
           <ScrollReveal animation="fade-up" delay={0.4}>
@@ -73,8 +77,11 @@ export default function Home() {
       </Section>
 
       <Section className="bg-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-center">
-          <ScrollReveal animation="slide-in-left" className="w-full md:w-1/2 flex justify-center">
+        <div className="w-full flex flex-col md:flex-row items-center justify-center">
+          <ScrollReveal
+            animation="slide-in-left"
+            className="w-full md:w-1/2 flex justify-center"
+          >
             <Image
               src="/images/e-filling.png"
               alt="EV Charging Station Close-up"
@@ -90,7 +97,11 @@ export default function Home() {
             className="w-full md:w-1/2 mt-8 md:mt-0 md:ml-12 text-center md:text-left"
           >
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold mb-4 text-[#17365d]">
-              At Nok Inc, we help homes, businesses, and communities
+              At{" "}
+              <span className="font-[family-name:var(--font-orbitron)] font-bold tracking-wider">
+                <span className="text-6xl font-semibold">n</span>OK inc
+              </span>
+              , we help homes, businesses, and communities
             </h1>
             <p className="text-gray-500 text-lg sm:text-xl">
               take control of their energy and transport. From reliable solar
@@ -201,7 +212,7 @@ export default function Home() {
       <section className="bg-gray-100/10 py-8 px-4 sm:px-6 lg:px-8">
         <ScrollReveal
           animation="scale-in"
-          className="relative overflow-hidden rounded-4xl h-[400px] max-w-7xl mx-auto"
+          className="relative overflow-hidden rounded-4xl h-[400px] max-w-7xl 2xl:max-w-[90%] mx-auto"
         >
           {/* Background Image */}
           <Image

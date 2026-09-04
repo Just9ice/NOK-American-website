@@ -19,7 +19,7 @@ export default function Header() {
   return (
     <header className="fixed w-full top-0 z-50 pt-4 px-4 sm:px-6">
       <nav
-        className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 rounded-3xl border border-white/10 bg-black/45 backdrop-blur-xl shadow-lg relative"
+        className="mx-auto max-w-7xl 2xl:max-w-[90%] px-4 sm:px-6 lg:px-8 rounded-3xl border border-white/10 bg-black/45 backdrop-blur-xl shadow-lg relative"
         aria-label="Top"
       >
         <div className="flex w-full items-center justify-between py-4 md:py-6">
