@@ -9,6 +9,20 @@ export const kekeMediaItems = [
   },
   {
     type: "video",
+    src: "/projects/cargo-loaded.mp4",
+    title: "Cargo Loaded",
+    category: "Cargo",
+    alt: "Cargo Keke loaded with cargo",
+  },
+  {
+    type: "video",
+    src: "/projects/cargo-wire-loaded.mp4",
+    title: "Wire Loaded Cargo",
+    category: "Cargo",
+    alt: "Cargo Keke loaded with wire",
+  },
+  {
+    type: "video",
     src: "/projects/keke-assembly.mp4",
     title: "Keke Assembly",
     category: "Assembly",
