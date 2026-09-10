@@ -84,6 +84,27 @@ export const solarMediaItems = [
     category: "Installation",
     alt: "Solar Rooftop Installation",
   },
+  {
+    type: "image",
+    src: "/projects/solar.jpg",
+    title: "Solar Panels",
+    category: "Hardware",
+    alt: "Solar Panels",
+  },
+  {
+    type: "image",
+    src: "/projects/solar-panels.jpg",
+    title: "Solar Panels",
+    category: "Hardware",
+    alt: "Solar Panel",
+  },
+  {
+    type: "image",
+    src: "/projects/solar-panels.jpg",
+    title: "Solar Panels on Display",
+    category: "Hardware",
+    alt: "Solar Panels on Display",
+  },
 ] as const;
 
 export type SolarMediaItem = (typeof solarMediaItems)[number];
