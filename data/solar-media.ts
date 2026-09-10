@@ -57,6 +57,27 @@ export const solarMediaItems = [
     alt: "Solar panel components",
   },
   {
+    type: "image",
+    src: "/projects/inverter.jpg",
+    title: "Inverter",
+    category: "Hardware",
+    alt: "Inverter",
+  },
+  {
+    type: "image",
+    src: "/projects/inverters.jpg",
+    title: "Boxed Inverters",
+    category: "Hardware",
+    alt: "Boxed Inverters",
+  },
+  {
+    type: "image",
+    src: "/projects/invert.jpg",
+    title: "Multiple Inverters",
+    category: "Hardware",
+    alt: "Multiple Inverters",
+  },
+  {
     type: "video",
     src: "/projects/sol-ar.mp4",
     title: "Solar Rooftop Installation",
