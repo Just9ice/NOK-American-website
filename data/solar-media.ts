@@ -16,6 +16,13 @@ export const solarMediaItems = [
   },
   {
     type: "video",
+    src: "/projects/power-room-setup.mp4",
+    title: "Power Room Setup",
+    category: "Installation",
+    alt: "Power Room Setup",
+  },
+  {
+    type: "video",
     src: "/projects/cable-tray.mp4",
     title: "Cable Tray",
     category: "Installation",
