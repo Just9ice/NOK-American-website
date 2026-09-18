@@ -15,6 +15,20 @@ export const batteryMediaItems = [
     alt: "Battery supply view",
   },
   {
+    type: "image",
+    src: "/projects/Battery-row.jpeg",
+    title: "Battery Racking",
+    category: "Storage",
+    alt: "Battery rows for storage",
+  },
+  {
+    type: "image",
+    src: "/projects/Battery-stack.jpeg",
+    title: "Battery Stacking",
+    category: "Storage",
+    alt: "Battery stacked for storage",
+  },
+  {
     type: "video",
     src: "/projects/Inverter-setup.mp4",
     title: "Inverter Setup",
