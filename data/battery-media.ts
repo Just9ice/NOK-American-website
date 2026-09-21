@@ -29,6 +29,27 @@ export const batteryMediaItems = [
     alt: "Battery stacked for storage",
   },
   {
+    type: "image",
+    src: "/projects/battery-stacked.jpeg",
+    title: "Battery Stacking",
+    category: "Storage",
+    alt: "Battery stacked for storage",
+  },
+  {
+    type: "image",
+    src: "/projects/batteries-stored.jpeg",
+    title: "Batteries Storage",
+    category: "Storage",
+    alt: "Batteries storage view",
+  },
+  {
+    type: "image",
+    src: "/projects/batteries-hauled.jpeg",
+    title: "Batteries Hauling",
+    category: "Logistics",
+    alt: "Batteries hauling",
+  },
+  {
     type: "video",
     src: "/projects/Inverter-setup.mp4",
     title: "Inverter Setup",
