@@ -37,6 +37,13 @@ export const solarMediaItems = [
   },
   {
     type: "video",
+    src: "/projects/setup.mp4",
+    title: "Setup",
+    category: "Setup",
+    alt: "Setup",
+  },
+  {
+    type: "video",
     src: "/projects/solar-wiring.mp4",
     title: "Solar Wiring",
     category: "Installation",
@@ -51,10 +58,31 @@ export const solarMediaItems = [
   },
   {
     type: "image",
+    src: "/projects/inverter-setup.jpeg",
+    title: "Inverter Setup",
+    category: "Installation",
+    alt: "Inverter Setup",
+  },
+  {
+    type: "image",
     src: "/projects/cable-tray.jpg",
     title: "Cable Tray",
     category: "Installation",
     alt: "Cable tray installation",
+  },
+  {
+    type: "image",
+    src: "/projects/railing-setup.jpeg",
+    title: "Railing Setup",
+    category: "Installation",
+    alt: "Railing setup",
+  },
+  {
+    type: "image",
+    src: "/projects/solar-inverter-setup.jpeg",
+    title: "Solar Inverter Setup",
+    category: "Installation",
+    alt: "Solar Inverter Setup",
   },
   {
     type: "image",
