@@ -8,6 +8,13 @@ export const solarMediaItems = [
     alt: "Roofing Preparations",
   },
   {
+    type: "image",
+    src: "/projects/power-house-construt.jpeg",
+    title: "Power House Construction",
+    category: "Infrastructure",
+    alt: "Power House Construction",
+  },
+  {
     type: "video",
     src: "/projects/solar-instal.mp4",
     title: "Solar Installation",
