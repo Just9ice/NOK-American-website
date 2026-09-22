@@ -175,6 +175,27 @@ export const solarMediaItems = [
     category: "Installation",
     alt: "Inverter Anchoring",
   },
+  {
+    type: "video",
+    src: "/projects/inverter-anchoring.mp4",
+    title: "Inverter Anchoring",
+    category: "Installation",
+    alt: "Inverter Anchoring",
+  },
+  {
+    type: "video",
+    src: "/projects/inverter-closeup.mp4",
+    title: "Inverter closeup",
+    category: "Installation",
+    alt: "Inverter closeup",
+  },
+  {
+    type: "video",
+    src: "/projects/inverter-up.mp4",
+    title: "Inverter snapshot",
+    category: "Installation",
+    alt: "Inverter snapshot",
+  },
 ] as const;
 
 export type SolarMediaItem = (typeof solarMediaItems)[number];
