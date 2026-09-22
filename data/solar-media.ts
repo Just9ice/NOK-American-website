@@ -114,6 +114,20 @@ export const solarMediaItems = [
   },
   {
     type: "image",
+    src: "/projects/inverter-haulage.jpeg",
+    title: "Inverter Haulage",
+    category: "Logistics",
+    alt: "Inverter Haulage",
+  },
+  {
+    type: "image",
+    src: "/projects/installed-inverter.jpeg",
+    title: "Installed Inverter",
+    category: "Installation",
+    alt: "Installed Inverter",
+  },
+  {
+    type: "image",
     src: "/projects/invert.jpg",
     title: "Multiple Inverters",
     category: "Hardware",
@@ -146,6 +160,20 @@ export const solarMediaItems = [
     title: "Solar Panels on Display",
     category: "Hardware",
     alt: "Solar Panels on Display",
+  },
+  {
+    type: "video",
+    src: "/projects/inverter-installation.mp4",
+    title: "Inverter Installation",
+    category: "Installation",
+    alt: "Inverter Installation",
+  },
+  {
+    type: "video",
+    src: "/projects/inverter-anchoring.mp4",
+    title: "Inverter Anchoring",
+    category: "Installation",
+    alt: "Inverter Anchoring",
   },
 ] as const;
 
