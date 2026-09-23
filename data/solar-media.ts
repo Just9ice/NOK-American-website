@@ -196,6 +196,20 @@ export const solarMediaItems = [
     category: "Installation",
     alt: "Inverter snapshot",
   },
+  {
+    type: "video",
+    src: "/projects/power-house-roofing.mp4",
+    title: "Power House Roofing",
+    category: "Installation",
+    alt: "Power House Roofing",
+  },
+  {
+    type: "video",
+    src: "/projects/boxes-connection.mp4",
+    title: "Solar Wiring Snapshot",
+    category: "Installation",
+    alt: "Solar Wiring Snapshot",
+  },
 ] as const;
 
 export type SolarMediaItem = (typeof solarMediaItems)[number];
