@@ -141,6 +141,20 @@ export const solarMediaItems = [
     alt: "Solar Rooftop Installation",
   },
   {
+    type: "video",
+    src: "/projects/solar-room-installation.mp4",
+    title: "Solar Room Installation",
+    category: "Installation",
+    alt: "Solar Room Installation",
+  },
+  {
+    type: "video",
+    src: "/projects/arrays-wired.mp4",
+    title: "Arrays Wired",
+    category: "Installation",
+    alt: "Arrays Wired",
+  },
+  {
     type: "image",
     src: "/projects/solar.jpg",
     title: "Solar Panels",
