@@ -30,14 +30,17 @@ export function HeroCarousel({ items }: HeroCarouselProps) {
   const [isAnimating, setIsAnimating] = useState(false);
   const [muted, setMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [expandedItem, setExpandedItem] = useState<HeroMediaItem | null>(null);
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const [mounted, setMounted] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  const expandedItem = expandedIndex !== null ? items[expandedIndex] : null;
+
   // Must be mounted before createPortal
   useEffect(() => {
-    setMounted(true);
+    const t = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(t);
   }, []);
 
   const resetTimer = useCallback(() => {
@@ -75,13 +78,40 @@ export function HeroCarousel({ items }: HeroCarouselProps) {
     }
   }, [isPlaying]);
 
+  // Lightbox navigation
+  const goToPrevExpanded = useCallback((e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    setExpandedIndex((prev) =>
+      prev === null ? 0 : prev <= 0 ? items.length - 1 : prev - 1
+    );
+  }, [items.length]);
+
+  const goToNextExpanded = useCallback((e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    setExpandedIndex((prev) =>
+      prev === null ? 0 : prev >= items.length - 1 ? 0 : prev + 1
+    );
+  }, [items.length]);
+
+  // Keyboard navigation for lightbox
+  useEffect(() => {
+    if (expandedIndex === null) return;
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") goToPrevExpanded();
+      else if (e.key === "ArrowRight") goToNextExpanded();
+      else if (e.key === "Escape") setExpandedIndex(null);
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, [expandedIndex, goToNextExpanded, goToPrevExpanded]);
+
   // Lock body scroll when modal is open
   useEffect(() => {
-    document.body.style.overflow = expandedItem ? "hidden" : "";
+    document.body.style.overflow = expandedIndex !== null ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [expandedItem]);
+  }, [expandedIndex]);
 
   if (!items.length) return null;
 
@@ -136,15 +166,26 @@ export function HeroCarousel({ items }: HeroCarouselProps) {
               }`}
             >
               {item.type === "image" ? (
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  fill
-                  quality={80}
-                  priority={idx === 0}
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 1400px"
-                />
+                <div 
+                  className="w-full h-full relative cursor-pointer group"
+                  onClick={() => setExpandedIndex(idx)}
+                >
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    fill
+                    quality={80}
+                    priority={idx === 0}
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 1400px"
+                  />
+                  {/* Full-area transparent overlay for hover effect */}
+                  <div className="absolute inset-0 z-10 flex items-center justify-center bg-transparent">
+                    <div className="flex items-center justify-center w-16 h-16 rounded-full bg-black/50 backdrop-blur-sm text-white opacity-0 group-hover:opacity-100 transition-all duration-300 scale-90 group-hover:scale-100 shadow-xl pointer-events-none">
+                      <Maximize2 className="w-7 h-7" />
+                    </div>
+                  </div>
+                </div>
               ) : (
                 <div className="w-full h-full relative group/vid">
                   {/* pointer-events-none so clicks reach the button below */}
@@ -159,11 +200,11 @@ export function HeroCarousel({ items }: HeroCarouselProps) {
                   />
                   {/* Full-area transparent button — the actual click target */}
                   <button
-                    onClick={() => setExpandedItem(item)}
-                    className="absolute inset-0 z-10 flex items-center justify-center bg-transparent cursor-pointer"
+                    onClick={() => setExpandedIndex(idx)}
+                    className="absolute inset-0 z-10 flex items-center justify-center bg-transparent cursor-pointer w-full h-full"
                     aria-label="Expand video fullscreen"
                   >
-                    <div className="flex items-center justify-center w-16 h-16 rounded-full bg-black/50 backdrop-blur-sm text-white opacity-0 group-hover/vid:opacity-100 transition-all duration-300 scale-90 group-hover/vid:scale-100 shadow-xl">
+                    <div className="flex items-center justify-center w-16 h-16 rounded-full bg-black/50 backdrop-blur-sm text-white opacity-0 group-hover/vid:opacity-100 transition-all duration-300 scale-90 group-hover/vid:scale-100 shadow-xl pointer-events-none">
                       <Maximize2 className="w-7 h-7" />
                     </div>
                   </button>
@@ -250,24 +291,63 @@ export function HeroCarousel({ items }: HeroCarouselProps) {
           guaranteeing the modal truly covers the entire viewport.          */}
       {mounted &&
         expandedItem &&
+        expandedIndex !== null &&
         createPortal(
           <div
             className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 backdrop-blur-lg"
-            onClick={() => setExpandedItem(null)}
+            onClick={() => setExpandedIndex(null)}
           >
+            {/* ── Close ── */}
             <button
               onClick={(e) => {
                 e.stopPropagation();
-                setExpandedItem(null);
+                setExpandedIndex(null);
               }}
-              className="absolute top-6 right-6 z-[10000] flex h-14 w-14 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur-md transition-all hover:bg-white/25 hover:scale-110"
+              style={{ position: "fixed", top: "1.25rem", right: "1.25rem", zIndex: 10000 }}
+              className="flex h-12 w-12 items-center justify-center rounded-full bg-zinc-800 border border-zinc-600 text-white shadow-xl hover:bg-zinc-700 active:scale-95 transition-all"
               aria-label="Close fullscreen"
             >
-              <X className="h-8 w-8" />
+              <X className="h-6 w-6" />
             </button>
 
+            {/* ── Counter ── */}
+            {items.length > 1 && (
+              <div
+                style={{ position: "fixed", top: "1.25rem", left: "50%", transform: "translateX(-50%)", zIndex: 10000 }}
+                className="flex items-center rounded-full bg-zinc-800 border border-zinc-600 px-4 py-1.5 shadow-xl"
+              >
+                <span className="text-sm font-semibold text-white tabular-nums">
+                  {expandedIndex + 1} / {items.length}
+                </span>
+              </div>
+            )}
+
+            {/* ── Prev ── */}
+            {items.length > 1 && (
+              <button
+                onClick={goToPrevExpanded}
+                style={{ position: "fixed", top: "50%", left: "0.75rem", transform: "translateY(-50%)", zIndex: 10000 }}
+                className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-zinc-800 border border-zinc-600 text-white shadow-xl hover:bg-zinc-700 active:scale-95 transition-all"
+                aria-label="Previous"
+              >
+                <ChevronLeft className="h-7 w-7" />
+              </button>
+            )}
+
+            {/* ── Next ── */}
+            {items.length > 1 && (
+              <button
+                onClick={goToNextExpanded}
+                style={{ position: "fixed", top: "50%", right: "0.75rem", transform: "translateY(-50%)", zIndex: 10000 }}
+                className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-zinc-800 border border-zinc-600 text-white shadow-xl hover:bg-zinc-700 active:scale-95 transition-all"
+                aria-label="Next"
+              >
+                <ChevronRight className="h-7 w-7" />
+              </button>
+            )}
+
             <div
-              className="relative w-[95vw] h-[95vh] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/20"
+              className="relative w-[calc(100vw-5rem)] sm:w-[calc(100vw-8rem)] h-[80vh] sm:h-[85vh] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/20 animate-in zoom-in-95 duration-300"
               onClick={(e) => e.stopPropagation()}
             >
               {expandedItem.type === "image" ? (
@@ -281,7 +361,7 @@ export function HeroCarousel({ items }: HeroCarouselProps) {
                 />
               ) : (
                 <video
-                  key={expandedItem.src}
+                  key={expandedItem.src + expandedIndex}
                   src={expandedItem.src}
                   controls
                   autoPlay
@@ -290,12 +370,16 @@ export function HeroCarousel({ items }: HeroCarouselProps) {
               )}
               {(expandedItem.title || expandedItem.category) && (
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6 sm:p-8 pointer-events-none">
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-1">
-                    {expandedItem.title}
-                  </h3>
-                  <p className="text-lg text-zinc-300">
-                    {expandedItem.category}
-                  </p>
+                  {expandedItem.category && (
+                    <span className="text-xs font-bold uppercase tracking-wider text-blue-300 block mb-1">
+                      {expandedItem.category}
+                    </span>
+                  )}
+                  {expandedItem.title && (
+                    <h3 className="text-2xl sm:text-3xl font-bold text-white mb-1">
+                      {expandedItem.title}
+                    </h3>
+                  )}
                 </div>
               )}
             </div>

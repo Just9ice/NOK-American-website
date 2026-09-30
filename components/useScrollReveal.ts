@@ -20,7 +20,7 @@ export function useScrollReveal(options: ScrollRevealOptions = {}) {
     // Check if user prefers reduced motion
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReducedMotion) {
-      setIsVisible(true);
+      setTimeout(() => setIsVisible(true), 0);
       return;
     }
 

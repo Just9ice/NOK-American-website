@@ -56,7 +56,7 @@ export default function ProductPage() {
               and enhance productivity for our valued clients. reliability, and
               accelerate the transition to cleaner, more efficient energy use.{" "}
               <br /> <br />
-              Whether you're expanding your agricultural operations, upgrading
+              Whether you&apos;re expanding your agricultural operations, upgrading
               your industrial facilities, or developing new infrastructure
               projects, NOK Inc has the right equipment and expertise to support
               your goals.

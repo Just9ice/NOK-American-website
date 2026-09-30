@@ -8,6 +8,13 @@ export const solarMediaItems = [
     alt: "Roofing Preparations",
   },
   {
+    type: "video",
+    src: "/projects/roofing-cabling.mp4",
+    title: "Roofing Cabling",
+    category: "Roofing Preparations",
+    alt: "Roofing Cabling",
+  },
+  {
     type: "image",
     src: "/projects/power-house-construt.jpeg",
     title: "Power House Construction",
@@ -17,9 +24,9 @@ export const solarMediaItems = [
   {
     type: "video",
     src: "/projects/solar-instal.mp4",
-    title: "Solar Installation",
+    title: "Solar Panels Installation",
     category: "Installation",
-    alt: "Solar panel installation",
+    alt: "Solar panels installation",
   },
   {
     type: "video",
