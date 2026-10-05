@@ -84,7 +84,7 @@ export default function ProductPage() {
                 Key Features
               </h3>
               <ul className="space-y-2 text-lg sm:text-xl text-gray-600">
-                <li>• Zero Tailpipe Emissiions</li>
+                <li>• Zero Tailpipe Emissions</li>
                 <li>• Low Running and Maintenance Costs</li>
                 <li>• Reduced Noise Pollution</li>
                 <li>• Versatile Cargo Options</li>
