@@ -2,6 +2,27 @@
 export const solarMediaItems = [
   {
     type: "video",
+    src: "/projects/power-system-integration.mp4",
+    title: "Power System Integration",
+    category: "Power System Integration",
+    alt: "Power System Integration",
+  },
+  {
+    type: "video",
+    src: "/projects/Battery-haulage.mp4",
+    title: "Battery Haulage",
+    category: "Battery Haulage",
+    alt: "Battery Haulage",
+  },
+  {
+    type: "video",
+    src: "/projects/Battery-installation.mp4",
+    title: "Battery Installation",
+    category: "Battery Installation",
+    alt: "Battery Installation",
+  },
+  {
+    type: "video",
     src: "/projects/roofing.mp4",
     title: "Roofing Preparations",
     category: "Roofing Preparations",
@@ -188,13 +209,6 @@ export const solarMediaItems = [
     title: "Inverter Installation",
     category: "Installation",
     alt: "Inverter Installation",
-  },
-  {
-    type: "video",
-    src: "/projects/inverter-anchoring.mp4",
-    title: "Inverter Anchoring",
-    category: "Installation",
-    alt: "Inverter Anchoring",
   },
   {
     type: "video",
