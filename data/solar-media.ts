@@ -23,6 +23,13 @@ export const solarMediaItems = [
   },
   {
     type: "video",
+    src: "/projects/solar-room-snippet.mp4",
+    title: "Solar Room Installation",
+    category: "Solar Installation",
+    alt: "Solar Room Installation",
+  },
+  {
+    type: "video",
     src: "/projects/roofing.mp4",
     title: "Roofing Preparations",
     category: "Roofing Preparations",
