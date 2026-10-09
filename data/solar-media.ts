@@ -2,10 +2,31 @@
 export const solarMediaItems = [
   {
     type: "video",
+    src: "/projects/system-positioning.mp4",
+    title: "Positioning of Systems in Power Room ",
+    category: "Installation",
+    alt: "Positioning of Systems in Power Room",
+  },
+  {
+    type: "video",
     src: "/projects/power-system-integration.mp4",
     title: "Power System Integration",
     category: "Power System Integration",
     alt: "Power System Integration",
+  },
+  {
+    type: "image",
+    src: "/projects/bess1-bess2.jpeg",
+    title: "BESS1 and BESS2 Positioned in the Power Room",
+    category: "Installation",
+    alt: "BESS1 and BESS2 Positioned in the Power Room",
+  },
+  {
+    type: "image",
+    src: "/projects/bess1-bess2-emgs-positioned.jpeg",
+    title: "BESS1, BESS2 and EMGS Installation",
+    category: "Installation",
+    alt: "BESS1, BESS2 and EMGS Installation",
   },
   {
     type: "video",
