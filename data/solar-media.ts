@@ -15,6 +15,13 @@ export const solarMediaItems = [
     alt: "Power System Integration",
   },
   {
+    type: "video",
+    src: "/projects/rail-welding.mp4",
+    title: "Rail Welding",
+    category: "Power System Integration",
+    alt: "Rail Welding",
+  },
+  {
     type: "image",
     src: "/projects/bess1-bess2.jpeg",
     title: "BESS1 and BESS2 Positioned in the Power Room",
