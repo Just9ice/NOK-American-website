@@ -16,6 +16,27 @@ export const batteryMediaItems = [
   },
   {
     type: "image",
+    src: "/projects/Battery-stacking.jpeg",
+    title: "Battery Supply",
+    category: "Storage",
+    alt: "Battery supply view",
+  },
+  {
+    type: "image",
+    src: "/projects/Batteries-stacked.jpeg",
+    title: "Battery Supply",
+    category: "Storage",
+    alt: "Battery supply view",
+  },
+  {
+    type: "image",
+    src: "/projects/Battery-loading.jpeg",
+    title: "Battery Supply",
+    category: "Storage",
+    alt: "Battery supply view",
+  },
+  {
+    type: "image",
     src: "/projects/Battery-row.jpeg",
     title: "Battery Racking",
     category: "Storage",
