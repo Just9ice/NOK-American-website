@@ -1,6 +1,20 @@
 // Shared media data for the Keke (Electric Tricycle) product pages
 export const kekeMediaItems = [
   {
+    type: "video",
+    src: "/projects/new-keke.mp4",
+    title: "Passenger Keke",
+    category: "Passenger",
+    alt: "Passenger Keke's underworkings",
+  },
+  {
+    type: "video",
+    src: "/projects/white-keke.mp4",
+    title: "White Keke",
+    category: "Passenger",
+    alt: "White passenger Keke",
+  },
+  {
     type: "image",
     src: "/projects/ev-image-1.jpg",
     title: "Passenger Keke",
