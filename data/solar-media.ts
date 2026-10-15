@@ -36,6 +36,20 @@ export const solarMediaItems = [
     alt: "BESS1, BESS2 and EMGS Installation",
   },
   {
+    type: "image",
+    src: "/projects/inverter-instal.jpeg",
+    title: "Inverter Installation",
+    category: "Installation",
+    alt: "Inverter Installation",
+  },
+  {
+    type: "image",
+    src: "/projects/inverter-insta.jpeg",
+    title: "Inverter Installation",
+    category: "Installation",
+    alt: "Inverter Installation",
+  },
+  {
     type: "video",
     src: "/projects/Battery-haulage.mp4",
     title: "Battery Haulage",
