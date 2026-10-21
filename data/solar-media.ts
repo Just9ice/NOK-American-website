@@ -2,6 +2,13 @@
 export const solarMediaItems = [
   {
     type: "video",
+    src: "/projects/full-wiring.mp4",
+    title: "Wiring in full of the Power Room ",
+    category: "Installation",
+    alt: "Wiring in full of the Power Room",
+  },
+  {
+    type: "video",
     src: "/projects/system-positioning.mp4",
     title: "Positioning of Systems in Power Room ",
     category: "Installation",
