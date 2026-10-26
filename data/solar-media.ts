@@ -29,11 +29,25 @@ export const solarMediaItems = [
     alt: "Rail Welding",
   },
   {
+    type: "video",
+    src: "/projects/materials.mp4",
+    title: "Materials",
+    category: "Installation",
+    alt: "Materials",
+  },
+  {
     type: "image",
     src: "/projects/bess1-bess2.jpeg",
     title: "BESS1 and BESS2 Positioned in the Power Room",
     category: "Installation",
     alt: "BESS1 and BESS2 Positioned in the Power Room",
+  },
+  {
+    type: "image",
+    src: "/projects/materials.jpeg",
+    title: "Materials",
+    category: "Installation",
+    alt: "Materials",
   },
   {
     type: "image",
