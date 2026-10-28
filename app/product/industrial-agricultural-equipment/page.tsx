@@ -1,23 +1,25 @@
 import Section from "@/components/Section";
 import { ScrollReveal } from "@/components/ScrollReveal";
-import Image from "next/image";
+import { HeroCarousel } from "@/components/HeroCarousel";
+import { IndustrialShowcase } from "@/components/IndustrialShowcase";
+import { industrialMediaItems } from "@/data/industrial-media";
 
 export default function ProductPage() {
+  const heroItems = industrialMediaItems.map((item) => ({
+    type: item.type as "image" | "video",
+    src: item.src,
+    alt: item.alt,
+    title: item.title,
+    category: item.category,
+  }));
+
   return (
     <>
       <div className="bg-green-100/10">
         <Section className="!pt-28 md:!pt-32 !pb-5 text-center !bg-transparent">
-          <div className="flex items-center justify-center py-5">
-            <ScrollReveal animation="scale-in">
-              <Image
-                src="/images/agric.png"
-                alt="NOK Inc Banner"
-                width={1200}
-                height={600}
-                quality={70}
-                priority={true}
-                className="w-full max-w-[1200px] h-[300px] md:h-[500px] object-cover rounded-3xl"
-              />
+          <div className="flex items-center justify-center py-5 px-4 md:px-16">
+            <ScrollReveal animation="scale-in" className="w-full">
+              <HeroCarousel items={heroItems} />
             </ScrollReveal>
           </div>
           <ScrollReveal animation="fade-up" delay={0.2}>
@@ -67,30 +69,74 @@ export default function ProductPage() {
           <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 p-5">
             <ScrollReveal animation="fade-up">
               <h3 className="text-2xl sm:text-3xl font-bold text-[#17365d] mb-4">
-                Our Battery & Inverter Solutions
+                Our Equipment Solutions
               </h3>
               <ul className="space-y-2 text-lg sm:text-xl text-gray-600">
-                <li>• Residential Backup Power Systems</li>
-                <li>• Commercial & Industrial Power Solutions</li>
-                <li>• Lithium Ion Battery Systems</li>
-                <li>• Hybrid-Ready Systems</li>
-                <li>• Installation & Maintenance Services</li>
+                <li>• Agricultural Machinery & Implements</li>
+                <li>• Industrial Machinery & Equipment</li>
+                <li>• Material Handling Equipment</li>
+                <li>• Irrigation & Water Management Systems</li>
+                <li>• Processing & Production Equipment</li>
+                <li>• Construction & Infrastructure Equipment</li>
+                <li>• Power Generation & Utility Equipment</li>
+                <li>• Equipment Supply, Installation & Support</li>
               </ul>
             </ScrollReveal>
             <ScrollReveal animation="fade-up" delay={0.2}>
               <h3 className="text-2xl sm:text-3xl font-bold text-[#17365d] mb-4">
-                Key Features
+                Features & Benefits
               </h3>
               <ul className="space-y-2 text-lg sm:text-xl text-gray-600">
-                <li>• High- and low-voltage lithium packs</li>
-                <li>• Hybrid-ready with solar, grid, or generator</li>
-                <li>• Remote monitoring via web and mobile</li>
+                <li>• High-Performance Equipment</li>
+                <li>• Durable & Reliable Construction</li>
+                <li>• Energy-Efficient Operation</li>
+                <li>• Increased Productivity</li>
+                <li>• Reduced Operating Costs</li>
+                <li>• Operator Safety & Compliance</li>
+                <li>• Professional Installation & Training</li>
+                <li>• Comprehensive Maintenance & After-Sales Support</li>
+              </ul>
+            </ScrollReveal>
+          </div>
+        </Section>
+        <Section className="!bg-transparent !py-5">
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 p-5">
+            <ScrollReveal animation="fade-up">
+              <h3 className="text-2xl sm:text-3xl font-bold text-[#17365d] mb-4">
+                Industries We Serve
+              </h3>
+              <p className="text-lg text-gray-500 mb-3">
+                Our equipment solutions support:
+              </p>
+              <ul className="space-y-2 text-lg sm:text-xl text-gray-600">
+                <li>• Agriculture & Agribusiness</li>
+                <li>• Manufacturing & Processing</li>
+                <li>• Construction & Engineering</li>
+                <li>• Mining & Natural Resources</li>
+                <li>• Food Processing</li>
+                <li>• Logistics & Warehousing</li>
+                <li>• Government & Public Infrastructure</li>
+                <li>• Commercial & Industrial Enterprises</li>
+              </ul>
+            </ScrollReveal>
+            <ScrollReveal animation="fade-up" delay={0.2}>
+              <h3 className="text-2xl sm:text-3xl font-bold text-[#17365d] mb-4">
+                Available Solutions
+              </h3>
+              <ul className="space-y-2 text-lg sm:text-xl text-gray-600">
+                <li>• Farm Machinery & Implements</li>
+                <li>• Industrial Processing Equipment</li>
+                <li>• Material Handling Systems</li>
+                <li>• Irrigation & Water Solutions</li>
+                <li>• Construction Equipment</li>
+                <li>• Maintenance & Spare Parts Support</li>
               </ul>
             </ScrollReveal>
           </div>
         </Section>
       </div>
+
+      <IndustrialShowcase />
     </>
   );
 }
-

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { kekeMediaItems } from "@/data/keke-media";
 import { batteryMediaItems } from "@/data/battery-media";
 import { solarMediaItems } from "@/data/solar-media";
+import { industrialMediaItems } from "@/data/industrial-media";
 
 import { Play, X } from "lucide-react";
 import { useState } from "react";
@@ -14,6 +15,7 @@ const allMedia = [
   ...kekeMediaItems,
   ...batteryMediaItems,
   ...solarMediaItems,
+  ...industrialMediaItems,
 ];
 
 // Need a shared type for the item

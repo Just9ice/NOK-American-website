@@ -1,0 +1,96 @@
+// Shared media data for the Industrial & Agricultural Equipment product pages
+export const industrialMediaItems = [
+  {
+    type: "image",
+    src: "/projects/consignment.jpeg",
+    title: "Industrial Consignment Equipment",
+    category: "Equipment",
+    alt: "Industrial Consignment Equipment",
+  },
+  {
+    type: "image",
+    src: "/projects/forklift-chasis.jpeg",
+    title: "Forklift Chassis Installation",
+    category: "Engineering",
+    alt: "Forklift chassis",
+  },
+  {
+    type: "image",
+    src: "/projects/forklift-part.jpeg",
+    title: "Forklift Modifications",
+    category: "Engineering",
+    alt: "Forklift modifications",
+  },
+  {
+    type: "image",
+    src: "/projects/forklift-spares.jpeg",
+    title: "Forklift Spares",
+    category: "Engineering",
+    alt: "Forklift spares",
+  },
+  {
+    type: "image",
+    src: "/projects/gears-spares.jpeg",
+    title: "Gear Spare Parts",
+    category: "Engineering",
+    alt: "Gear spare parts",
+  },
+  {
+    type: "image",
+    src: "/projects/levers.jpeg",
+    title: " Levers",
+    category: "Engineering",
+    alt: "Levers",
+  },
+  {
+    type: "image",
+    src: "/projects/parts.jpeg",
+    title: "Spare Parts",
+    category: "Engineering",
+    alt: "Spare Parts",
+  },
+  {
+    type: "image",
+    src: "/projects/spares.jpeg",
+    title: "Industrial Spare Parts",
+    category: "Engineering",
+    alt: "Industrial Spare Parts",
+  },
+  {
+    type: "image",
+    src: "/projects/spare-tires.jpeg",
+    title: "Forklift Spare Tires",
+    category: "Engineering",
+    alt: "Spare Tires for Forklift",
+  },
+  {
+    type: "image",
+    src: "/projects/steering.jpeg",
+    title: "Steering System",
+    category: "Engineering",
+    alt: "Steering System",
+  },
+  {
+    type: "image",
+    src: "/projects/tires.jpeg",
+    title: "Forklift Tires",
+    category: "Engineering",
+    alt: "Forklift Tires",
+  },
+  {
+    type: "image",
+    src: "/projects/tires-spares.jpeg",
+    title: "Forklift Spare Tires",
+    category: "Engineering",
+    alt: "Forklift Spare Tires",
+  },
+  {
+    type: "video",
+    src: "/projects/shippment.mp4",
+    title: "Container Shippment",
+    category: "Logistics",
+    alt: "Container Shippment",
+  },
+] as const;
+
+export type IndustrialMediaItem = (typeof industrialMediaItems)[number];
