@@ -91,6 +91,13 @@ export const industrialMediaItems = [
     category: "Logistics",
     alt: "Container Shippment",
   },
+  {
+    type: "image",
+    src: "/projects/shaft.jpeg",
+    title: "Forklift Spare Tires",
+    category: "Engineering",
+    alt: "Forklift Spare Tires",
+  },
 ] as const;
 
 export type IndustrialMediaItem = (typeof industrialMediaItems)[number];
