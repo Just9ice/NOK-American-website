@@ -2,6 +2,13 @@
 export const solarMediaItems = [
   {
     type: "video",
+    src: "/projects/power-point-installation.mp4",
+    title: "Power Point Installation",
+    category: "Installation",
+    alt: "Power Point Installation",
+  },
+  {
+    type: "video",
     src: "/projects/full-wiring.mp4",
     title: "Wiring in full of the Power Room ",
     category: "Installation",
@@ -34,6 +41,20 @@ export const solarMediaItems = [
     title: "Materials",
     category: "Installation",
     alt: "Materials",
+  },
+  {
+    type: "image",
+    src: "/projects/wall-mount-power-point.jpeg",
+    title: "Charge Station Installed on a Wall",
+    category: "Installation",
+    alt: "Charge Station Installed on a Wall",
+  },
+  {
+    type: "image",
+    src: "/projects/power-point.jpeg",
+    title: "Wall Mounted Charge Stations",
+    category: "Installation",
+    alt: "Wall Mounted Charge Stations",
   },
   {
     type: "image",
