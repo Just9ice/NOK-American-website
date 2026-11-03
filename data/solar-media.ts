@@ -2,6 +2,20 @@
 export const solarMediaItems = [
   {
     type: "video",
+    src: "/projects/active-charging-station.mp4",
+    title: "Active Charging Station",
+    category: "Installation",
+    alt: "Active Charging Station",
+  },
+  {
+    type: "video",
+    src: "/projects/charge-station.mp4",
+    title: "Charge Station Installation",
+    category: "Installation",
+    alt: "Charge Station Installation",
+  },
+  {
+    type: "video",
     src: "/projects/power-point-installation.mp4",
     title: "Power Point Installation",
     category: "Installation",
