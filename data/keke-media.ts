@@ -1,6 +1,55 @@
 // Shared media data for the Keke (Electric Tricycle) product pages
 export const kekeMediaItems = [
   {
+    type: "image",
+    src: "/projects/keke-cargo-part.jpeg",
+    title: "Cargo Keke Spare Shock Absorbers",
+    category: "Spare Parts",
+    alt: "Cargo Keke Spare Shock Absorbers",
+  },
+  {
+    type: "image",
+    src: "/projects/keke-cargo-shocks.jpeg",
+    title: "Cargo Keke Spare Shocks",
+    category: "Spare Parts",
+    alt: "Cargo Keke Spare Shocks",
+  },
+  {
+    type: "image",
+    src: "/projects/passenger-shocks.jpeg",
+    title: "Passenger Keke Spare Shocks",
+    category: "Spare Parts",
+    alt: "Passenger Keke Spare Shocks",
+  },
+  {
+    type: "image",
+    src: "/projects/shock.jpeg",
+    title: "Passenger Keke Spare Shocks",
+    category: "Spare Parts",
+    alt: "Passenger Keke Spare Shocks",
+  },
+  {
+    type: "image",
+    src: "/projects/shock-absorbers.jpeg",
+    title: "Keke Shock Absorbers",
+    category: "Spare Parts",
+    alt: "Keke Shock Absorbers",
+  },
+  {
+    type: "image",
+    src: "/projects/shocks.jpeg",
+    title: "Keke Spare Shocks",
+    category: "Spare Parts",
+    alt: "Keke Spare Shocks",
+  },
+  {
+    type: "image",
+    src: "/projects/passenger-shocks.jpeg",
+    title: "Passenger Keke Spare Shocks",
+    category: "Spare Parts",
+    alt: "Passenger Keke Spare Shocks",
+  },
+  {
     type: "video",
     src: "/projects/new-keke.mp4",
     title: "Passenger Keke",
